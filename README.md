@@ -1,6 +1,15 @@
 # with-money
 
-> A project to control your money
+
+
+# With Money
+
+A project to control your money
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/7f452077f9e11c1a0b95/maintainability)](https://codeclimate.com/github/davidcostadev/with-money/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7f452077f9e11c1a0b95/test_coverage)](https://codeclimate.com/github/davidcostadev/with-money/test_coverage)
+[![Build Status](https://travis-ci.org/davidcostadev/with-money.svg?branch=master)](https://travis-ci.org/davidcostadev/with-money)
+[![codecov](https://codecov.io/gh/davidcostadev/with-money/branch/master/graph/badge.svg)](https://codecov.io/gh/davidcostadev/with-money)
 
 ## Build Setup
 
