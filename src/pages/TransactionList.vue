@@ -1,8 +1,18 @@
 <template>
   <div>
     <md-toolbar>
-      <h3 class="md-title">With Money</h3>
+      <md-button>
+        <md-icon>chevron_left</md-icon> Abril
+      </md-button>
+      <h3 class="md-title" style="flex: 1; text-align: center;">Junho</h3>
+      <md-button>
+        <md-icon>chevron_right</md-icon> Julho
+      </md-button>
     </md-toolbar>
+    <md-tabs>
+      <md-tab md-label="Fixas"></md-tab>
+      <md-tab md-label="Variáveis"></md-tab>
+    </md-tabs>
     <md-table>
       <md-table-row>
         <md-table-head>Nome</md-table-head>
