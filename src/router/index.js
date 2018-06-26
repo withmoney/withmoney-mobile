@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Login from '@/pages/Login';
 import TransactionEdit from '@/pages/TransactionEdit';
 import TransactionList from '@/pages/TransactionList';
+import Reports from '@/pages/Reports';
+import Settings from '@/pages/Settings';
 import store from '../store';
 
 Vue.use(Router);
@@ -47,6 +49,18 @@ export default new Router({
       path: '/transaction/:id',
       name: 'TransactionEdit',
       component: TransactionEdit,
+      beforeEnter: secure,
+    },
+    {
+      path: '/reports',
+      name: 'Reports',
+      component: Reports,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: Settings,
       beforeEnter: secure,
     },
   ],
