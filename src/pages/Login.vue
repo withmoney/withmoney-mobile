@@ -40,6 +40,7 @@ export default {
         if (data.length) {
           const [user] = data;
           window.localStorage.setItem('token', 'blahblabh');
+          window.localStorage.setItem('user', JSON.stringify(user));
 
           this.$store.dispatch('addUser', user);
 
