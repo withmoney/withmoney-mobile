@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Render default 1`] = `
+<div>
+  <form
+    id="login"
+  >
+    <md-card>
+      <md-card-content>
+        <md-field>
+          <label
+            for="email"
+          >
+            Email
+          </label>
+           
+          <md-input
+            id="email"
+            type="email"
+          />
+        </md-field>
+      </md-card-content>
+       
+      <md-card-actions>
+        <md-button
+          class="md-primary"
+          type="submit"
+        >
+          Login
+        </md-button>
+      </md-card-actions>
+    </md-card>
+     
+    <md-snackbar>
+      <span>
+        
+      </span>
+       
+      <md-button
+        class="md-primary"
+        md-persistent=""
+      >
+        Retry
+      </md-button>
+    </md-snackbar>
+  </form>
+</div>
+`;
