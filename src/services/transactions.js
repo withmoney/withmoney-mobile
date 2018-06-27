@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './axios';
 
 import { parseMultDate } from '../utils/parse';
 
@@ -6,9 +6,9 @@ const transactionsFields = {
   transationDate: 'transactionDate',
 };
 
-const getTransactions = () => parseMultDate(axios.get('http://localhost:3000/api/v1/transactions'), transactionsFields);
+const getTransactions = () => parseMultDate(axios.get('transactions'), transactionsFields);
 
-const getTransaction = id => parseMultDate(axios.get(`http://localhost:3000/api/v1/transactions/${id}`), transactionsFields);
+const getTransaction = id => parseMultDate(axios.get(`transactions/${id}`), transactionsFields);
 
 export default {
   getTransactions,
