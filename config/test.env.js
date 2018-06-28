@@ -5,8 +5,8 @@ const devEnv = require('./dev.env')
 const dotent = require('dotenv')
 
 dotent.config()
-console.log(process.env)
+
 module.exports = merge(devEnv, {
-  NODE_ENV: '"testingaaaa"',
+  NODE_ENV: '"test"',
   MYMONEY_API: `"${process.env.MYMONEY_API}"`,
 })
