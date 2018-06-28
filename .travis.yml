@@ -12,12 +12,14 @@ jobs:
   include:
     - stage: unit
       script: npm run unit
+      before_script:
+        - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
+        - "chmod +x ./cc-test-reporter"
+        - "./cc-test-reporter before-build"
+        after_script:
+          - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
     - stage: e2e
       script: npm run e2e
 before_script:
-  - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
-  - "chmod +x ./cc-test-reporter"
-  - "./cc-test-reporter before-build"
   - "cp example.env .env"
-after_script:
-  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+
