@@ -20,3 +20,4 @@ selenium-debug.log
 *.sln
 
 .env
+yarn.lock
