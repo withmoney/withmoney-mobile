@@ -8,9 +8,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run build && node ./server.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "cypress": "cypress run",
-    "e2e": "npm run build && node test/e2e/runner.js",
-    "e2e2": "start-server-and-test start http://localhost:8080 cypress",
+    "cypress": "cypress run --record",
+    "e2e": "start-server-and-test start http://localhost:8080 cypress",
     "test": "npm run unit && npm run e2e && codecov",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js"
