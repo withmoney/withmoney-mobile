@@ -1,5 +1,5 @@
 const cypress = require('cypress');
 const server = require('../../server');
 
-cypress.run()
+return cypress.run()
   .then((results) => server.close());
