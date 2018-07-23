@@ -1,14 +1,6 @@
 <template>
   <div>
-    <md-toolbar>
-      <md-button>
-        <md-icon>chevron_left</md-icon> Abril
-      </md-button>
-      <h3 class="md-title" style="flex: 1; text-align: center;">Junho</h3>
-      <md-button>
-        <md-icon>chevron_right</md-icon> Julho
-      </md-button>
-    </md-toolbar>
+    <toolbar v-on:update:stateMonth="getTransactions" />
     <md-tabs>
       <md-tab md-label="Fixas"></md-tab>
       <md-tab md-label="Variáveis"></md-tab>
@@ -35,24 +27,40 @@
 </template>
 
 <script>
+import Moment from 'moment';
+import { mapGetters } from 'vuex';
 import Transaction from '../services/transactions';
+import Toolbar from '../components/Toolbar';
 
 export default {
-  name: 'App',
+  components: { Toolbar },
   data() {
     return {
       transactions: [],
     };
   },
+  computed: {
+    ...mapGetters(['state_month']),
+  },
   methods: {
     onSelectTransaction({ id }) {
       this.$router.push(`/transaction/${id}`);
     },
-  },
-  async created() {
-    const { data } = await Transaction.getTransactions();
+    async getTransactions() {
+      const start = Moment(this.state_month).startOf('month').toISOString();
+      const end = Moment(this.state_month).endOf('month').toISOString();
+      const { data } = await Transaction.getTransactions({
+        createdAt: [
+          start,
+          end,
+        ].join(','),
+      });
 
-    this.transactions = data;
+      this.transactions = data;
+    },
+  },
+  created() {
+    this.getTransactions();
   },
 };
 </script>

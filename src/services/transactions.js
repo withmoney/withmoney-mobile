@@ -1,14 +1,22 @@
+import qs from 'querystring';
 import axios from './axios';
-
 import { parseMultDate } from '../utils/parse';
 
 const transactionsFields = {
   transationDate: 'transactionDate',
 };
 
-const getTransactions = () => parseMultDate(axios.get('transactions'), transactionsFields);
+const mountQuery = (url, query = {}) => {
+  if (Object.keys(query).length) {
+    return `${url}?${qs.stringify(query)}`;
+  }
 
-const getTransaction = id => parseMultDate(axios.get(`transactions/${id}`), transactionsFields);
+  return url;
+};
+
+const getTransactions = (query = {}) => parseMultDate(axios.get(mountQuery('transactions', query)), transactionsFields);
+
+const getTransaction = (id, query = {}) => parseMultDate(axios.get(mountQuery(`transactions/${id}`, query)), transactionsFields);
 
 export default {
   getTransactions,
