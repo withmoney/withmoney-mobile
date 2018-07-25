@@ -1,10 +1,10 @@
 <template>
   <md-toolbar>
-    <md-button @click="toPreviousMonth">
+    <md-button id="btn-previus-month" @click="toPreviousMonth">
       <md-icon>chevron_left</md-icon> {{previous_month_str}}
     </md-button>
     <h3 class="md-title" style="flex: 1; text-align: center;">{{state_month_str}}</h3>
-    <md-button @click="toNextMonth">
+    <md-button id="btn-next-month" @click="toNextMonth">
       <md-icon>chevron_right</md-icon> {{next_month_str}}
     </md-button>
   </md-toolbar>
