@@ -39,20 +39,26 @@ export default {
   methods: {
     async onSubmit() {
       if (this.email && this.password) {
-        const { data } = await Users.login({
-          email: this.email,
-          password: this.password,
-        });
-        if (data.success) {
-          window.localStorage.setItem('token', data.token);
-          window.localStorage.setItem('user', JSON.stringify(data.payload));
+        try {
+          const { data } = await Users.login({
+            email: this.email,
+            password: this.password,
+          });
 
-          this.$store.dispatch('addUser', data.payload);
+          if (data.success) {
+            window.localStorage.setItem('token', data.token);
+            window.localStorage.setItem('user', JSON.stringify(data.payload));
 
-          this.$router.push('/');
-        } else {
+            this.$store.dispatch('addUser', data.payload);
+
+            this.$router.push('/');
+          } else {
+            this.showError = true;
+            this.error = 'Usuário não encontrado.';
+          }
+        } catch (e) {
           this.showError = true;
-          this.error = 'Usuário não encontrado.';
+          this.error = e.response.data.message;
         }
       } else {
         this.showError = true;
