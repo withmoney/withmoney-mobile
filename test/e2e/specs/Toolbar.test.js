@@ -5,7 +5,7 @@ describe('Toolbar', () => {
     cy.visit('/');
     cy.get('#email').type('davidcostadev@gmail.com');
     cy.get('#password').type('P@ssw0rd');
-    cy.route(/api\/v1\/login/g).as('login');
+    cy.route('POST', /api\/v1\/login/i).as('login');
     cy.get('#login').submit()
     cy.wait('@login');
 
