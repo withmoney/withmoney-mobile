@@ -10,6 +10,10 @@ const parseUrlQuery = (url, query) => (
 
 const getUsers = (query = {}) => parseMultDate(axios.get(parseUrlQuery('users', query)), userFields);
 
+
+const login = (params = {}) => axios.post('login', params);
+
 export default {
   getUsers,
+  login,
 };

@@ -5,7 +5,8 @@ describe('Login', () => {
     cy.server()
     cy.visit('/');
     cy.get('#email').type('davidcostadev@gmail.com');
-    cy.route(/api\/v1\/users/g).as('login');
+    cy.get('#password').type('P@ssw0rd');
+    cy.route('POST', /api\/v1\/login/u).as('login');
     cy.get('#login').submit()
     cy.wait('@login');
     cy.contains('.md-toolbar .md-title', 'julho 18');
