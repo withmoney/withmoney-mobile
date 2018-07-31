@@ -7,6 +7,10 @@
             <label for="email">Email</label>
             <md-input type="email" id="email" v-model="email" />
           </md-field>
+          <md-field>
+            <label for="password">Password</label>
+            <md-input type="password" id="password" v-model="password" />
+          </md-field>
         </md-card-content>
         <md-card-actions>
           <md-button type="submit" class="md-primary">Login</md-button>
@@ -27,28 +31,32 @@ export default {
   data() {
     return {
       email: '',
+      password: '',
       error: '',
       showError: false,
     };
   },
   methods: {
     async onSubmit() {
-      if (this.email) {
-        const { data } = await Users.getUsers({
+      if (this.email && this.password) {
+        const { data } = await Users.login({
           email: this.email,
+          password: this.password,
         });
-        if (data.length) {
-          const [user] = data;
-          window.localStorage.setItem('token', 'blahblabh');
-          window.localStorage.setItem('user', JSON.stringify(user));
+        if (data.success) {
+          window.localStorage.setItem('token', data.token);
+          window.localStorage.setItem('user', JSON.stringify(data.payload));
 
-          this.$store.dispatch('addUser', user);
+          this.$store.dispatch('addUser', data.payload);
 
           this.$router.push('/');
         } else {
           this.showError = true;
           this.error = 'Usuário não encontrado.';
         }
+      } else {
+        this.showError = true;
+        this.error = 'Por favor preencha os campos corretamente';
       }
     },
   },

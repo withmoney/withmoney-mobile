@@ -19,6 +19,19 @@ exports[`Login Page Render default 1`] = `
             type="email"
           />
         </md-field>
+         
+        <md-field>
+          <label
+            for="password"
+          >
+            Password
+          </label>
+           
+          <md-input
+            id="password"
+            type="password"
+          />
+        </md-field>
       </md-card-content>
        
       <md-card-actions>
