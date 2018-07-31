@@ -22,6 +22,9 @@ const insecure = (to, from, next) => {
 
 const secure = (to, from, next) => {
   const token = window.localStorage.getItem('token');
+  const user = window.localStorage.getItem('user');
+
+  store.dispatch('addUser', JSON.parse(user));
 
   if (store.getters.user || token) {
     next();
