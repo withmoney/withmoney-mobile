@@ -1,12 +1,15 @@
+import Moment from 'moment';
+import VueMaterial from 'vue-material';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import Toolbar from '../../../src/components/Toolbar';
-import state from '../../../src/store/state';
 import getters from '../../../src/store/getters';
 
 const localVue = createLocalVue();
 
+
 localVue.use(Vuex);
+localVue.use(VueMaterial);
 
 describe('Toolbar Component', () => {
   let store;
@@ -14,7 +17,13 @@ describe('Toolbar Component', () => {
 
   beforeEach(() => {
     store = new Vuex.Store({
-      state,
+      state: {
+        current_month: Moment(),
+        state_month: Moment(),
+        state_month_str: Moment().format('MMMM YY'),
+        next_month_str: Moment().add(1, 'month').format('MMMM YY'),
+        previous_month_str: Moment().subtract(1, 'month').format('MMMM YY'),
+      },
       getters,
     });
   });

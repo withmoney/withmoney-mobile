@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar Component Render default 1`] = `
-<md-toolbar>
-  <md-button
+<mdtoolbar-stub>
+  <mdbutton-stub
     id="btn-previus-month"
   >
-    <md-icon>
+    <mdicon-stub>
       chevron_left
-    </md-icon>
+    </mdicon-stub>
      June 18
   
-  </md-button>
+  </mdbutton-stub>
    
   <h3
     class="md-title"
@@ -19,14 +19,14 @@ exports[`Toolbar Component Render default 1`] = `
     July 18
   </h3>
    
-  <md-button
+  <mdbutton-stub
     id="btn-next-month"
   >
-    <md-icon>
+    <mdicon-stub>
       chevron_right
-    </md-icon>
+    </mdicon-stub>
      August 18
   
-  </md-button>
-</md-toolbar>
+  </mdbutton-stub>
+</mdtoolbar-stub>
 `;
