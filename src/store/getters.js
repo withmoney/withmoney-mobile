@@ -17,4 +17,10 @@ export default {
   previous_month_str(state) {
     return state.previous_month_str;
   },
+  flash_message(state) {
+    return state.flash_message;
+  },
+  show_flash_message(state) {
+    return !!state.flash_message;
+  },
 };
