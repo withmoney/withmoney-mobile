@@ -13,4 +13,10 @@ export default {
   toPreviousMonth({ commit }) {
     commit(types.TO_PREVIUS_MONTH);
   },
+  showFlashMessage({ commit }, payload) {
+    commit(types.FLASH_MESSAGE_SHOW, payload);
+  },
+  hideFlashMessage({ commit }) {
+    commit(types.FLASH_MESSAGE_HIDE);
+  },
 };

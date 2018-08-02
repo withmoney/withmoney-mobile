@@ -18,4 +18,10 @@ export default {
     state.state_month = Moment(state.state_month).add(1, 'month');
     updateStatesMont(state);
   },
+  [types.FLASH_MESSAGE_SHOW](state, payload) {
+    state.flash_message = payload;
+  },
+  [types.FLASH_MESSAGE_HIDE](state) {
+    state.flash_message = '';
+  },
 };

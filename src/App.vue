@@ -2,6 +2,7 @@
   <div id="app">
     <div id="main">
       <router-view  />
+      <flash-message />
     </div>
     <md-tabs v-if="user" md-alignment="centered">
       <md-tab id="tab-home" md-label="Transações" md-icon="attach_money" to="/"></md-tab>
@@ -12,9 +13,11 @@
 </template>
 
 <script>
+import FlashMessage from './components/FlashMessage';
 
 export default {
   name: 'App',
+  components: { FlashMessage },
   computed: {
     user() {
       return this.$store.state.user;
