@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { catchInvalidToken } from '../utils/parse';
 
-export default axios.create({
+const newAxios = axios.create({
   baseURL: `${process.env.MYMONEY_API}api/v1/`,
   headers: {
     Authorization: {
@@ -11,3 +12,12 @@ export default axios.create({
   },
 });
 
+
+const fetch = method => (...args) => catchInvalidToken(newAxios[method](...args));
+
+export default {
+  get: fetch('get'),
+  post: fetch('post'),
+  put: fetch('put'),
+  delete: fetch('delete'),
+};

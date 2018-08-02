@@ -22,4 +22,14 @@ export const parseMultDate = (pro, scheme) => pro.then(({ data }) => {
   return Promise.resolve(parseDate(data, scheme));
 });
 
+export const catchInvalidToken = fetch => fetch.catch((err) => {
+  if (err.response.data.message === 'Invalid auth token provided.') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    location.reload();
+  }
+  return Promise.reject(err);
+});
+
 export default parseMultDate;
