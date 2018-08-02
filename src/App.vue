@@ -39,6 +39,7 @@ export default {
   }
   #main {
     flex: 1;
+    position: relative;
   }
   .md-content {
     padding: 16px;

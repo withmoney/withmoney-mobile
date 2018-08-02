@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionNew Component Render default 1`] = `
+<div>
+  <mdtoolbar-stub>
+    <router-link-stub>
+      <mdbutton-stub
+        class="md-icon-button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Add new Transaction
+    </h3>
+  </mdtoolbar-stub>
+   
+  <form>
+    <mdcard-stub>
+      <mdcardcontent-stub>
+        <mdfield-stub>
+          <label
+            for="name"
+          >
+            Name
+          </label>
+           
+          <mdinput-stub />
+        </mdfield-stub>
+         
+        <mdfield-stub>
+          <input
+            class="md-input"
+            id="value"
+            type="text"
+          />
+           
+          <mdicon-stub>
+            attach_money
+          </mdicon-stub>
+        </mdfield-stub>
+         
+        <mddatepicker-stub>
+          <label>
+            Transaction Day
+          </label>
+        </mddatepicker-stub>
+         
+        <mdfield-stub>
+          <label
+            for="type"
+          >
+            Type
+          </label>
+           
+          <mdselect-stub>
+            <mdoption-stub>
+              In
+            </mdoption-stub>
+             
+            <mdoption-stub>
+              Out
+            </mdoption-stub>
+          </mdselect-stub>
+        </mdfield-stub>
+         
+        <mdfield-stub>
+          <label
+            for="AccountId"
+          >
+            Account
+          </label>
+           
+          <mdselect-stub />
+        </mdfield-stub>
+         
+        <div>
+          <mdswitch-stub
+            class="md-primary"
+          >
+            IsPaid?
+          </mdswitch-stub>
+        </div>
+      </mdcardcontent-stub>
+       
+      <mdcardactions-stub>
+        <mdbutton-stub
+          class="md-primary"
+        >
+          Save
+        </mdbutton-stub>
+      </mdcardactions-stub>
+    </mdcard-stub>
+  </form>
+</div>
+`;

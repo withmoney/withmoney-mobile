@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full-height">
     <toolbar v-on:update:stateMonth="getTransactions" />
     <md-tabs>
       <md-tab md-label="Fixas"></md-tab>
@@ -23,6 +23,9 @@
         <md-table-cell>{{transaction.isPaid ? 'Paid' : 'Not Paid'}}</md-table-cell>
       </md-table-row>
     </md-table>
+    <md-button class="md-fab md-primary menu-speed" to="/transaction-new">
+      <md-icon>note_add</md-icon>
+    </md-button>
   </div>
 </template>
 
@@ -57,7 +60,7 @@ export default {
       });
 
       this.transactions = data;
-    },
+    }
   },
   created() {
     this.getTransactions();
@@ -68,5 +71,10 @@ export default {
 <style>
   .md-content {
     padding: 16px;
+  }
+  .menu-speed {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
   }
 </style>
