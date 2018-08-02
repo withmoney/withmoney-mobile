@@ -1,3 +1,5 @@
+import qs from 'querystring';
+
 const renameFields = (data, scheme) => {
   const renamed = {
     ...data,
@@ -21,6 +23,14 @@ export const parseMultDate = (pro, scheme) => pro.then(({ data }) => {
 
   return Promise.resolve(parseDate(data, scheme));
 });
+
+export const mountQuery = (url, query = {}) => {
+  if (Object.keys(query).length) {
+    return `${url}?${qs.stringify(query)}`;
+  }
+
+  return url;
+};
 
 export const catchInvalidToken = fetch => fetch.catch((err) => {
   if (err.response.data.message === 'Invalid auth token provided.') {

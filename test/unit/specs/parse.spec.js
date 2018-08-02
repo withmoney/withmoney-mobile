@@ -1,4 +1,4 @@
-import { catchInvalidToken } from '../../../src/utils/parse';
+import { catchInvalidToken, mountQuery } from '../../../src/utils/parse';
 
 describe('parse utils', () => {
   describe('catchInvalidToken', () => {
@@ -42,6 +42,27 @@ describe('parse utils', () => {
 
       expect(global.localStorage.removeItem.mock.calls[0][0]).toBe('token');
       expect(global.localStorage.removeItem.mock.calls[1][0]).toBe('user');
+    });
+  });
+
+  describe('mountQuery parse url ', () => {
+    let url;
+
+    beforeAll(() => {
+      url = 'http://domain.com/test';
+    });
+
+    it('with query', () => {
+      const query = {
+        page: 1,
+        limit: 20,
+      };
+
+      expect(mountQuery(url, query)).toBe('http://domain.com/test?page=1&limit=20');
+    });
+
+    it('without query', () => {
+      expect(mountQuery(url)).toBe('http://domain.com/test');
     });
   });
 });
