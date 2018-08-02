@@ -29,7 +29,7 @@ export const catchInvalidToken = fetch => fetch.catch((err) => {
 
     location.reload();
   }
-  return Promise.reject(err);
+  return err;
 });
 
 export default parseMultDate;
