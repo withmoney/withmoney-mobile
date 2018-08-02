@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/pages/Login';
+import TransactionNew from '@/pages/TransactionNew';
 import TransactionEdit from '@/pages/TransactionEdit';
 import TransactionList from '@/pages/TransactionList';
 import Reports from '@/pages/Reports';
@@ -52,6 +53,12 @@ export default new Router({
       path: '/transaction/:id',
       name: 'TransactionEdit',
       component: TransactionEdit,
+      beforeEnter: secure,
+    },
+    {
+      path: '/transaction-new',
+      name: 'TransactionNew',
+      component: TransactionNew,
       beforeEnter: secure,
     },
     {
