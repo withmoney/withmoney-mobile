@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: mysql:5
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: mymoney_test
+      MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - 3306
+  api:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: mysql://root:123@db:3306/mymoney_test

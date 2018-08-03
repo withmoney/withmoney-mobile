@@ -1,25 +1,36 @@
 language: node_js
+services:
+  - docker
 dist: trusty
 install:
-  - npm ci
+- npm ci
 node_js:
-  - 10
+- 10
 cache:
   directories:
-    - ~/.npm
-    - ~/.cache
+  - ~/.npm
+  - ~/.cache
 jobs:
   include:
-    - stage: unit
-      script: npm run unit
-      before_script:
-        - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
-        - "chmod +x ./cc-test-reporter"
-        - "./cc-test-reporter before-build"
-      after_script:
-        - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-    - stage: e2e
-      script: npm run e2e
+  - stage: unit
+    script: npm run unit
+    before_script:
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+      > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - "./cc-test-reporter before-build"
+    after_script:
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - stage: e2e
+    env:
+    - DOCKER_COMPOSE_VERSION=1.21.2
+    script: npm run e2e
+    before_install:
+    - sudo rm /usr/local/bin/docker-compose
+    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+    - chmod +x docker-compose
+    - sudo mv docker-compose /usr/local/bin
+    - docker-compose build
+    - docker-compose up -d
 before_script:
-  - "cp example.env .env"
-
+- cp example.env .env
