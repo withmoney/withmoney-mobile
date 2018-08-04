@@ -1,15 +1,10 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, shallowMount, mount } from '@vue/test-utils';
 import VueMaterial from 'vue-material';
-import VueRouter from 'vue-router';
-import Vuex from 'vuex';
 import Transaction from '../../../../../src/components/forms/Transaction';
-import store from '../../../../../src/store';
 
 const localVue = createLocalVue();
 
-localVue.use(Vuex);
 localVue.use(VueMaterial);
-localVue.use(VueRouter);
 
 const mock = {
   data: {
@@ -53,13 +48,41 @@ describe('Transaction Component', () => {
     it('default', () => {
       const onSave = jest.fn();
       const wrapper = shallowMount(Transaction, {
-        store,
         localVue,
         propsData: { onSave },
       });
 
       expect(wrapper.isVueInstance).toBeTruthy();
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('Behavior', () => {
+    it('onSave', () => {
+      const onSave = jest.fn();
+      const wrapper = mount(Transaction, {
+        localVue,
+        propsData: {
+          onSave,
+        },
+        sync: false,
+      });
+
+      wrapper.find('#save').trigger('click');
+
+      expect(onSave.mock.calls[0][0]).toHaveProperty('name');
+      expect(onSave.mock.calls[0][0]).toHaveProperty('value');
+      expect(onSave.mock.calls[0][0]).toHaveProperty('AccountId');
+      expect(onSave.mock.calls[0][0]).toHaveProperty('isPaid');
+      expect(onSave.mock.calls[0][0]).toHaveProperty('type');
+      expect(onSave.mock.calls[0][0]).toHaveProperty('transactionDate');
+
+      expect(onSave.mock.calls[0][0].name).toBe('');
+      expect(onSave.mock.calls[0][0].value).toBe('');
+      expect(onSave.mock.calls[0][0].AccountId).toBe(0);
+      expect(onSave.mock.calls[0][0].isPaid).toBe(false);
+      expect(onSave.mock.calls[0][0].type).toBe('out');
+      expect(onSave.mock.calls[0][0].transactionDate instanceof Date).toBe(true);
     });
   });
 });
