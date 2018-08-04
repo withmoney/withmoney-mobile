@@ -6,7 +6,7 @@
 export default {
   props: {
     value: {
-      type: String,
+      type: Boolean,
       required: true
     }
   }
