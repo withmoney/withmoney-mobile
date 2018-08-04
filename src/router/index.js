@@ -50,7 +50,7 @@ export default new Router({
       beforeEnter: secure,
     },
     {
-      path: '/transaction/:id',
+      path: '/transactions/:id',
       name: 'TransactionEdit',
       component: TransactionEdit,
       beforeEnter: secure,

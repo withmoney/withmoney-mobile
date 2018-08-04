@@ -16,6 +16,7 @@
         v-for="transaction in transactions"
         :key="transaction.id"
         @click="onSelectTransaction(transaction)"
+        :id="`transaction-${transaction.id}`"
       >
         <md-table-cell>{{transaction.name}}</md-table-cell>
         <md-table-cell>{{transaction.value}}</md-table-cell>
@@ -47,7 +48,7 @@ export default {
   },
   methods: {
     onSelectTransaction({ id }) {
-      this.$router.push(`/transaction/${id}`);
+      this.$router.push(`/transactions/${id}`);
     },
     async getTransactions() {
       const start = Moment(this.state_month).startOf('month').toISOString();
@@ -60,7 +61,7 @@ export default {
       });
 
       this.transactions = data;
-    }
+    },
   },
   created() {
     this.getTransactions();

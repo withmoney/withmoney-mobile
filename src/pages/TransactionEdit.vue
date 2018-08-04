@@ -8,46 +8,66 @@
       </router-link>
       <h3 class="md-title">Transaction: {{name}}</h3>
     </md-toolbar>
-    <form>
-      <md-card>
-        <md-card-content>
-          <md-field>
-            <label for="">Name</label>
-            <md-input  v-model="name" />
-          </md-field>
-          <md-field>
-            <input type="text" id="value" v-model="value" class="md-input">
-            <md-icon>attach_money</md-icon>
-          </md-field>
-          <md-datepicker v-model="transactionDate">
-            <label>Transaction Day</label>
-          </md-datepicker>
-          <md-switch v-model="isPaid" class="md-primary">IsPaid?</md-switch>
-        </md-card-content>
-      </md-card>
-    </form>
+    <transaction-form
+      v-if="transaction"
+      :name="name"
+      :value="value"
+      :AccountId="AccountId"
+      :type="type"
+      :isPaid="isPaid"
+      :transactionDate="transactionDate"
+      :onSave="onSave"
+    />
   </div>
 </template>
 
 <script>
 import Transaction from '../services/transactions';
+import TransactionForm from '../components/forms/Transaction';
 
 export default {
+  components: {
+    TransactionForm,
+  },
   data() {
     return {
       name: '',
       value: '',
+      AccountId: 0,
+      type: 'out',
       isPaid: false,
-      transactionDate: '2018-05-30',
+      transactionDate: '',
+      accounts: [],
+      transaction: null,
+      isLoading: false,
     };
   },
-  async created() {
-    const data = await Transaction.getTransaction(this.$route.params.id);
+  methods: {
+    async onSave(data) {
+      const transaction = await Transaction.update(this.$route.params.id, data);
 
-    this.name = data.name;
-    this.value = data.value;
-    this.isPaid = data.isPaid;
-    this.transactionDate = data.transactionDate;
+      if (transaction.id) {
+        this.$store.dispatch('showFlashMessage', 'Transanção salva com sucesso!');
+      }
+
+      this.$router.push('/');
+    },
+    async getTransaction() {
+      const data = await Transaction.getTransaction(this.$route.params.id);
+
+      this.name = data.name;
+      this.value = data.value;
+      this.isPaid = data.isPaid;
+      this.transactionDate = data.transactionDate;
+      this.type = data.type;
+      this.AccountId = data.AccountId;
+      setTimeout(() => {
+        this.transaction = data;
+      }, 1000);
+    },
+  },
+  created() {
+    this.getTransaction();
   },
 };
 </script>
