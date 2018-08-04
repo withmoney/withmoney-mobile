@@ -77,7 +77,7 @@ describe('Transaction', () => {
     });
 
     cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('addTransaction');
-    cy.get(`#transaction-${transaction.id}`).click({ force: true });
+    cy.get(`#transaction-${transaction.id} button`).click({ force: true });
     cy.wait('@addTransaction').then((xhr) => {
       expect(xhr.response.body).toHaveProperty('id');
       expect(xhr.response.body.id).toBe(transaction.id);

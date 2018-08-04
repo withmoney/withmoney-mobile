@@ -41,13 +41,16 @@ export default {
     flex: 1;
     position: relative;
   }
-  .md-content {
-    padding: 16px;
-  }
   input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: rgb(250, 255, 189) !important;
     background-image: none !important;
     color: rgb(0, 0, 0) !important;
     -webkit-text-fill-color: #000 !important;
+  }
+
+  .menu-speed {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
   }
 </style>
