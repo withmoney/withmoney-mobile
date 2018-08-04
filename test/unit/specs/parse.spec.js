@@ -1,6 +1,65 @@
-import { catchInvalidToken, mountQuery } from '../../../src/utils/parse';
+import {
+  catchInvalidToken,
+  mountQuery,
+  renameFields,
+  parseMultDate,
+} from '../../../src/utils/parse';
 
 describe('parse utils', () => {
+  describe('renameFields', () => {
+    it('should replace fields', () => {
+      const data = {
+        name: 'David',
+        idade: 18,
+      };
+      const scheme = {
+        idade: 'age',
+      };
+      expect(renameFields(data, scheme)).toEqual({
+        name: 'David',
+        age: 18,
+      });
+    });
+  });
+
+  describe('parseMultDate should replace when is', () => {
+    it('object', async () => {
+      const data = {
+        name: 'David',
+        idade: 18,
+      };
+      const scheme = {
+        idade: 'age',
+      };
+      const result = await parseMultDate(Promise.resolve({ data }), scheme);
+
+      expect(result).toEqual({
+        name: 'David',
+        age: 18,
+      });
+    });
+
+    it('array', async () => {
+      const data = {
+        name: 'David',
+        idade: 18,
+      };
+      const scheme = {
+        idade: 'age',
+      };
+      const result = await parseMultDate(Promise.resolve({ data: { data: [data] } }), scheme);
+
+      expect(result).toEqual({
+        data: [
+          {
+            name: 'David',
+            age: 18,
+          },
+        ],
+      });
+    });
+  });
+
   describe('catchInvalidToken', () => {
     let fetch;
     let localStorageLocal;
@@ -46,6 +105,16 @@ describe('parse utils', () => {
 
       expect(global.localStorage.removeItem.mock.calls[0][0]).toBe('token');
       expect(global.localStorage.removeItem.mock.calls[1][0]).toBe('user');
+    });
+
+    it('get error on network', async () => {
+      fetch.mockRejectedValue(new Error('Network'));
+
+      try {
+        await catchInvalidToken(fetch());
+      } catch (e) {
+        expect(e.message).toBe('Network');
+      }
     });
   });
 

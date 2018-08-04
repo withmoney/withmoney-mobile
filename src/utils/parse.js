@@ -1,6 +1,6 @@
 import qs from 'querystring';
 
-const renameFields = (data, scheme) => {
+export const renameFields = (data, scheme) => {
   const renamed = {
     ...data,
   };
@@ -12,16 +12,17 @@ const renameFields = (data, scheme) => {
   return renamed;
 };
 
-const parseDate = (data, scheme) => renameFields(data, scheme);
+const parseDate = scheme => data => renameFields(data, scheme);
 
 export const parseMultDate = (pro, scheme) => pro.then(({ data }) => {
-  if (typeof data.data !== 'undefined' && Array.isArray(data.data)) {
-    data.data.map(item => parseDate(item, scheme));
-
-    Promise.resolve(data);
+  if (Array.isArray(data.data)) {
+    const newData = data.data.map(parseDate(scheme));
+    return Promise.resolve({
+      data: newData,
+    });
   }
 
-  return Promise.resolve(parseDate(data, scheme));
+  return Promise.resolve(renameFields(data, scheme));
 });
 
 export const mountQuery = (url, query = {}) => {
@@ -33,7 +34,7 @@ export const mountQuery = (url, query = {}) => {
 };
 
 const logout = () => {
-  if (localStorage.getItem('token') || localStorage.getItem('token')) {
+  if (localStorage.getItem('token')) {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
 
@@ -42,8 +43,10 @@ const logout = () => {
 };
 
 export const catchInvalidToken = fetch => fetch.catch((err) => {
-  if (typeof err.response && err.response.data.message === 'Invalid auth token provided.') {
-    logout();
+  if (typeof err.response !== 'undefined') {
+    if (err.response.data.message === 'Invalid auth token provided.') {
+      logout();
+    }
   }
 
   throw err;
