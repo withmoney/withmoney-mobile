@@ -16,10 +16,6 @@
           <md-button type="submit" class="md-primary">Login</md-button>
         </md-card-actions>
       </md-card>
-      <md-snackbar :md-active.sync="showError">
-        <span>{{error}}</span>
-        <md-button  class="md-primary" @click="showError = false" md-persistent>Retry</md-button>
-      </md-snackbar>
     </form>
   </div>
 </template>
@@ -53,16 +49,17 @@ export default {
 
             this.$router.push('/');
           } else {
-            this.showError = true;
-            this.error = 'Usuário não encontrado.';
+            this.$store.dispatch('showFlashMessage', 'Usuário não encontrado.');
           }
         } catch (e) {
-          this.showError = true;
-          this.error = e.response.data.message;
+          if (typeof e.response !== 'undefined') {
+            this.$store.dispatch('showFlashMessage', e.response.data.message);
+          } else {
+            this.$store.dispatch('showFlashMessage', e.message);
+          }
         }
       } else {
-        this.showError = true;
-        this.error = 'Por favor preencha os campos corretamente';
+        this.$store.dispatch('showFlashMessage', 'Por favor preencha os campos corretamente');
       }
     },
   },

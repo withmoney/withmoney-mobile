@@ -43,19 +43,6 @@ exports[`Login Page Render default 1`] = `
         </md-button>
       </md-card-actions>
     </md-card>
-     
-    <md-snackbar>
-      <span>
-        
-      </span>
-       
-      <md-button
-        class="md-primary"
-        md-persistent=""
-      >
-        Retry
-      </md-button>
-    </md-snackbar>
   </form>
 </div>
 `;

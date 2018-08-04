@@ -32,14 +32,21 @@ export const mountQuery = (url, query = {}) => {
   return url;
 };
 
-export const catchInvalidToken = fetch => fetch.catch((err) => {
-  if (err.response.data.message === 'Invalid auth token provided.') {
+const logout = () => {
+  if (localStorage.getItem('token') || localStorage.getItem('token')) {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
 
     location.reload();
   }
-  return err;
+};
+
+export const catchInvalidToken = fetch => fetch.catch((err) => {
+  if (typeof err.response && err.response.data.message === 'Invalid auth token provided.') {
+    logout();
+  }
+
+  throw err;
 });
 
 export default parseMultDate;
