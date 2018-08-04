@@ -21,6 +21,6 @@ export default {
     return state.flash_message;
   },
   show_flash_message(state) {
-    return !!state.flash_message;
+    return !!state.flash_message.length;
   },
 };
