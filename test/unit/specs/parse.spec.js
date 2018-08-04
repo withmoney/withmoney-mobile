@@ -12,6 +12,7 @@ describe('parse utils', () => {
 
       fetch = jest.fn();
       global.localStorage = {
+        getItem: jest.fn().mockReturnValue('abc'),
         removeItem: jest.fn(),
       };
       global.location.reload = jest.fn();
@@ -34,11 +35,14 @@ describe('parse utils', () => {
       try {
         await catchInvalidToken(fetch());
       } catch (e) {
-        expect(e.message).toBe('asd');
+        expect(e.response.data.message).toBe('Invalid auth token provided.');
       }
 
+      expect(global.localStorage.getItem).toBeCalled();
       expect(global.localStorage.removeItem).toBeCalled();
       expect(global.location.reload).toBeCalled();
+
+      expect(global.localStorage.getItem.mock.calls[0][0]).toBe('token');
 
       expect(global.localStorage.removeItem.mock.calls[0][0]).toBe('token');
       expect(global.localStorage.removeItem.mock.calls[1][0]).toBe('user');
