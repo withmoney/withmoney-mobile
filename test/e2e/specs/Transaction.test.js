@@ -85,6 +85,7 @@ describe('Transaction', () => {
     cy.location().should((loc) => {
       expect(loc.hash).toBe(`#/transactions/${transaction.id}`);
     });
+    cy.get('#name').clear();
     cy.get('#name').type('Almoço 2');
 
     cy.get('#value').clear();
