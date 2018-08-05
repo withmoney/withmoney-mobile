@@ -21,7 +21,9 @@
         <md-table-cell>{{transaction.name}}</md-table-cell>
         <md-table-cell>{{transaction.value}}</md-table-cell>
         <md-table-cell>{{transaction.transactionDate}}</md-table-cell>
-        <md-table-cell class="md-table-cell-center"><is-paid :value="transaction.isPaid" /></md-table-cell>
+        <md-table-cell class="md-table-cell-center">
+          <is-paid :value="transaction.isPaid" />
+        </md-table-cell>
         <md-table-cell>
           <md-button class="md-icon-button" @click="onSelectTransaction(transaction)">
             <md-icon>chevron_right</md-icon>
