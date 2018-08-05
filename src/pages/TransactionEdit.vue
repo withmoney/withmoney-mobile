@@ -61,9 +61,8 @@ export default {
       this.transactionDate = data.transactionDate;
       this.type = data.type;
       this.AccountId = data.AccountId;
-      setTimeout(() => {
-        this.transaction = data;
-      }, 1000);
+
+      this.transaction = data;
     },
   },
   created() {
