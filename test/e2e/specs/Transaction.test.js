@@ -30,9 +30,6 @@ describe('Transaction', () => {
   });
 
   it('add', () => {
-    cy.location().should((loc) => {
-      expect(loc.hash).toBe('#/');
-    });
     cy.get('a[href="#/transaction-new"]').click();
     cy.location().should((loc) => {
       expect(loc.hash).toBe('#/transaction-new');
@@ -69,16 +66,13 @@ describe('Transaction', () => {
       expect(loc.hash).toBe('#/');
     });
     cy.get('.md-snackbar-content span').contains('Transanção salva com sucesso!');
+    cy.get('.md-snackbar .md-button.md-primary').click();
   });
 
   it('edit', () => {
-    cy.location().should((loc) => {
-      expect(loc.hash).toBe('#/');
-    });
-
-    cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('addTransaction');
+    cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
     cy.get(`#transaction-${transaction.id} button`).click({ force: true });
-    cy.wait('@addTransaction').then((xhr) => {
+    cy.wait('@getTransaction').then((xhr) => {
       expect(xhr.response.body).toHaveProperty('id');
       expect(xhr.response.body.id).toBe(transaction.id);
     });
@@ -119,5 +113,22 @@ describe('Transaction', () => {
       expect(loc.hash).toBe('#/');
     });
     cy.get('.md-snackbar-content span').contains('Transanção salva com sucesso!');
+    cy.get('.md-snackbar .md-button.md-primary').click();
+  });
+
+  it('delete', () => {
+    cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
+    cy.get(`#transaction-${transaction.id} button`).click({ force: true });
+    cy.wait('@getTransaction').then((xhr) => {
+      expect(xhr.response.body).toHaveProperty('id');
+      expect(xhr.response.body.id).toBe(transaction.id);
+    });
+    cy.location().should((loc) => {
+      expect(loc.hash).toBe(`#/transactions/${transaction.id}`);
+    });
+    cy.get('#delete').click();
+    cy.get('.md-dialog .md-button.md-primary').click();
+    cy.get('.md-snackbar-content span').contains('Transação excluida com sucesso');
+    cy.get('.md-snackbar .md-button.md-primary').click();
   });
 });

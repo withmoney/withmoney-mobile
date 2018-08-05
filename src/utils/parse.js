@@ -14,7 +14,7 @@ export const renameFields = (data, scheme) => {
 
 const parseDate = scheme => data => renameFields(data, scheme);
 
-export const parseMultDate = (pro, scheme) => pro.then(({ data }) => {
+export const parseMultDate = (pro, scheme = {}) => pro.then(({ data }) => {
   if (Array.isArray(data.data)) {
     const newData = data.data.map(parseDate(scheme));
     return Promise.resolve({

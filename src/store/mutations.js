@@ -20,7 +20,9 @@ export default {
   },
   [types.FLASH_MESSAGE_SHOW](state, payload) {
     state.flash_message = payload;
-    state.show_flash_message = !!payload.length;
+    if (payload.length) {
+      state.show_flash_message = true;
+    }
   },
   [types.FLASH_MESSAGE_HIDE](state) {
     state.flash_message = '';

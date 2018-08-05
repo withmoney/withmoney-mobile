@@ -11,9 +11,12 @@ const create = params => parseMultDate(axios.post('transactions', params), trans
 
 const update = (id, params) => parseMultDate(axios.put(`transactions/${id}`, params), transactionsFields);
 
+const destroy = id => axios.delete(`transactions/${id}`);
+
 export default {
   getTransactions,
   getTransaction,
   create,
   update,
+  destroy,
 };
