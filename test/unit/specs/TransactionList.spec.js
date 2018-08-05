@@ -73,7 +73,11 @@ describe('TransactionList Component', () => {
     });
 
     it('with transactions', () => {
-      const wrapper = mount(TransactionList, { store, localVue });
+      const stubs = {
+        MdTab: '<div class="md-tab-stubbed" />',
+      };
+
+      const wrapper = mount(TransactionList, { stubs, store, localVue });
       wrapper.setData({
         transactions,
       });

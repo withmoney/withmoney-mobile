@@ -93,36 +93,6 @@ exports[`TransactionList Component Render with transactions 1`] = `
     <div
       class="md-tabs-navigation md-elevation-0"
     >
-      <button
-        class="md-button md-theme-default"
-        type="button"
-      >
-        <div
-          class="md-ripple"
-        >
-          <div
-            class="md-button-content"
-          >
-            Fixas
-          </div>
-           
-        </div>
-      </button>
-      <button
-        class="md-button md-theme-default"
-        type="button"
-      >
-        <div
-          class="md-ripple"
-        >
-          <div
-            class="md-button-content"
-          >
-            Variáveis
-          </div>
-           
-        </div>
-      </button>
        
       <span
         class="md-tabs-indicator"
@@ -137,13 +107,13 @@ exports[`TransactionList Component Render with transactions 1`] = `
         class="md-tabs-container"
       >
         <div
-          class="md-tab"
-          id="md-tab-uo8adfvob"
+          class="md-tab-stubbed"
+          md-label="Fixas"
         />
          
         <div
-          class="md-tab"
-          id="md-tab-lpeqm66v"
+          class="md-tab-stubbed"
+          md-label="Variáveis"
         />
       </div>
     </div>
