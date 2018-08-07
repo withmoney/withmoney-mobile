@@ -33,6 +33,9 @@
             </md-option>
           </md-select>
         </md-field>
+        <md-autocomplete v-model="CategoryMutable" :md-options="categories" @md-changed="onChange" @md-selected="onSelect" :md-open-on-focus="false">
+          <label>Category</label>
+        </md-autocomplete>
         <div>
           <md-switch v-model="isPaidMutable" class="md-primary" id="isPaid">IsPaid?</md-switch>
         </div>
@@ -51,6 +54,7 @@
 
 <script>
 import Accounts from '../../services/accounts';
+import Categories from '../../services/categories';
 
 export default {
   props: {
@@ -65,6 +69,9 @@ export default {
     AccountId: {
       type: Number,
       default: 0,
+    },
+    Category: {
+      type: String,
     },
     type: {
       type: String,
@@ -86,6 +93,10 @@ export default {
   data() {
     return {
       accounts: [],
+      categories: [
+        'a',
+        'b',
+      ],
       isLoading: false,
       nameMutable: this.name,
       valueMutable: this.value,
@@ -93,9 +104,16 @@ export default {
       typeMutable: this.type,
       isPaidMutable: this.isPaid,
       AccountIdMutable: this.AccountId,
+      CategoryMutable: '',
     };
   },
   methods: {
+    onChange(a) {
+      console.log('a', a);
+    },
+    onSelect(b) {
+      console.log('b', b);
+    },
     async save() {
       this.isLoading = true;
 
@@ -103,6 +121,7 @@ export default {
         name: this.nameMutable,
         value: this.valueMutable,
         AccountId: this.AccountIdMutable,
+        Category: this.CategoryMutable,
         type: this.typeMutable,
         isPaid: this.isPaidMutable,
         transactionDate: this.transactionDateMutable,
@@ -114,9 +133,14 @@ export default {
       const { data } = await Accounts.get();
       this.accounts = data;
     },
+    async getCategories() {
+      const { data } = await Categories.get();
+      // this.categories = data.map(category => category.name);
+    },
   },
   created() {
     this.getAccounts();
+    this.getCategories();
   },
 };
 </script>

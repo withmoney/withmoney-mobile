@@ -2,32 +2,29 @@
   <div class="full-height">
     <toolbar v-on:update:stateMonth="getTransactions" />
     <md-tabs>
-      <md-tab md-label="Fixas"></md-tab>
-      <md-tab md-label="Variáveis"></md-tab>
+      <md-tab md-label="Entradas" @click="onChangeTab('in')"></md-tab>
+      <md-tab md-label="Saidas" @click="onChangeTab('out')"></md-tab>
     </md-tabs>
     <md-table md-card>
       <md-table-row>
+        <md-table-head>Data</md-table-head>
         <md-table-head>Nome</md-table-head>
         <md-table-head>Valor</md-table-head>
-        <md-table-head>Data</md-table-head>
+        <md-table-head>Categoria</md-table-head>
         <md-table-head style="width: 75px">Pago?</md-table-head>
-        <md-table-head style="width: 60px" />
       </md-table-row>
       <md-table-row
         v-for="transaction in transactions"
         :key="transaction.id"
         :id="`transaction-${transaction.id}`"
+         @click="onSelectTransaction(transaction)"
       >
+        <md-table-cell>{{decorateDate(transaction.transactionDate)}}</md-table-cell>
         <md-table-cell>{{transaction.name}}</md-table-cell>
         <md-table-cell>{{transaction.value}}</md-table-cell>
-        <md-table-cell>{{transaction.transactionDate}}</md-table-cell>
+        <md-table-cell>{{transaction.Category.name}}</md-table-cell>
         <md-table-cell class="md-table-cell-center">
           <is-paid :value="transaction.isPaid" />
-        </md-table-cell>
-        <md-table-cell>
-          <md-button class="md-icon-button" @click="onSelectTransaction(transaction)">
-            <md-icon>chevron_right</md-icon>
-          </md-button>
         </md-table-cell>
       </md-table-row>
     </md-table>
@@ -43,11 +40,13 @@ import { mapGetters } from 'vuex';
 import Transaction from '../services/transactions';
 import Toolbar from '../components/Toolbar';
 import IsPaid from '../components/IsPaid';
+import { decorateDate } from '../utils/date';
 
 export default {
   components: { Toolbar, IsPaid },
   data() {
     return {
+      type: 'in',
       transactions: [],
     };
   },
@@ -55,13 +54,21 @@ export default {
     ...mapGetters(['state_month']),
   },
   methods: {
+    decorateDate,
     onSelectTransaction({ id }) {
       this.$router.push(`/transactions/${id}`);
+    },
+    onChangeTab(type) {
+      this.type = type;
+      this.getTransactions();
     },
     async getTransactions() {
       const start = Moment(this.state_month).startOf('month').toISOString();
       const end = Moment(this.state_month).endOf('month').toISOString();
       const { data } = await Transaction.getTransactions({
+        type: this.type,
+        batch: 'Categories',
+        order: 'transactionDate.asc',
         createdAt: [
           start,
           end,
