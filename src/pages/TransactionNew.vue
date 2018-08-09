@@ -19,23 +19,11 @@
 import { mapGetters } from 'vuex';
 import TransactionForm from '../components/forms/Transaction';
 import Transaction from '../services/transactions';
-// import Accounts from '../services/accounts';
 
 export default {
   components: {
     TransactionForm,
   },
-  // data() {
-  //   return {
-  //     // name: '',
-  //     // value: '',
-  //     // AccountId: 0,
-  //     // type: 'out',
-  //     // isPaid: false,
-  //     // transactionDate: new Date(),
-  //     // accounts: [],
-  //   };
-  // },
   computed: {
     ...mapGetters(['state_month']),
   },
@@ -49,9 +37,6 @@ export default {
 
       this.$router.push('/');
     },
-  },
-  mounted() {
-    // this.transactionDate = this.state_month.format();
   },
 };
 </script>

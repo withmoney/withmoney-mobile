@@ -33,9 +33,19 @@
             </md-option>
           </md-select>
         </md-field>
-        <md-autocomplete v-model="CategoryMutable" :md-options="categories" @md-changed="onChange" @md-selected="onSelect" :md-open-on-focus="false">
-          <label>Category</label>
-        </md-autocomplete>
+        <md-field>
+          <label for="CategoryId">Category</label>
+          <md-select v-model="CategoryIdMutable" name="CategoryId" id="category">
+            <md-option
+            v-for="category in categories"
+            :key="category.id"
+            :value="category.id"
+            :id="`category-${category.id}`"
+            >
+              {{category.name}}
+            </md-option>
+          </md-select>
+        </md-field>
         <div>
           <md-switch v-model="isPaidMutable" class="md-primary" id="isPaid">IsPaid?</md-switch>
         </div>
@@ -70,8 +80,9 @@ export default {
       type: Number,
       default: 0,
     },
-    Category: {
-      type: String,
+    CategoryId: {
+      type: Number,
+      default: 0,
     },
     type: {
       type: String,
@@ -93,10 +104,7 @@ export default {
   data() {
     return {
       accounts: [],
-      categories: [
-        'a',
-        'b',
-      ],
+      categories: [],
       isLoading: false,
       nameMutable: this.name,
       valueMutable: this.value,
@@ -104,16 +112,10 @@ export default {
       typeMutable: this.type,
       isPaidMutable: this.isPaid,
       AccountIdMutable: this.AccountId,
-      CategoryMutable: '',
+      CategoryIdMutable: this.CategoryId,
     };
   },
   methods: {
-    onChange(a) {
-      console.log('a', a);
-    },
-    onSelect(b) {
-      console.log('b', b);
-    },
     async save() {
       this.isLoading = true;
 
@@ -121,7 +123,7 @@ export default {
         name: this.nameMutable,
         value: this.valueMutable,
         AccountId: this.AccountIdMutable,
-        Category: this.CategoryMutable,
+        CategoryId: this.CategoryIdMutable,
         type: this.typeMutable,
         isPaid: this.isPaidMutable,
         transactionDate: this.transactionDateMutable,
@@ -129,18 +131,22 @@ export default {
 
       this.isLoading = false;
     },
+
     async getAccounts() {
       const { data } = await Accounts.get();
       this.accounts = data;
     },
     async getCategories() {
-      const { data } = await Categories.get();
+      const { data } = await Categories.get({
+        type: this.typeMutable,
+      });
       // this.categories = data.map(category => category.name);
+      this.categories = data;
     },
   },
-  created() {
-    this.getAccounts();
-    this.getCategories();
+  async created() {
+    await this.getAccounts();
+    await this.getCategories();
   },
 };
 </script>

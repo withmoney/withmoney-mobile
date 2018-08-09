@@ -49,6 +49,9 @@ describe('Transaction', () => {
     cy.get('#account').click({ force: true });
     cy.get('#account-2').click();
 
+    cy.get('#category').click({ force: true });
+    cy.get('#category-1').click();
+
     cy.get('label[for="isPaid"]').click({ force: true });
 
     cy.route('POST', /api\/v1\/transactions/i).as('addTransaction');
@@ -95,6 +98,9 @@ describe('Transaction', () => {
 
     cy.get('#account').click({ force: true });
     cy.get('#account-1').click();
+
+    cy.get('#category').click({ force: true });
+    cy.get('#category-1').click();
 
     cy.get('label[for="isPaid"]').click({ force: true });
 

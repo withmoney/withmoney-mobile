@@ -16,6 +16,7 @@
       :name="name"
       :value="value"
       :AccountId="AccountId"
+      :CategoryId="CategoryId"
       :type="type"
       :isPaid="isPaid"
       :transactionDate="transactionDate"
@@ -44,6 +45,7 @@ export default {
       name: '',
       value: '',
       AccountId: 0,
+      CategoryId: 0,
       type: 'out',
       isPaid: false,
       transactionDate: '',
@@ -72,6 +74,7 @@ export default {
       this.transactionDate = data.transactionDate;
       this.type = data.type;
       this.AccountId = data.AccountId;
+      this.CategoryId = data.CategoryId;
 
       this.transaction = data;
     },
