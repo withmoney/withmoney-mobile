@@ -4,12 +4,17 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import TransactionList from '../../../src/pages/TransactionList';
 import store from '../../../src/store';
+import router from '../../../src/router';
 
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
 localVue.use(VueMaterial);
 localVue.use(VueRouter);
+
+const Category = {
+  name: 'Lanche',
+};
 
 const transactions = [
   {
@@ -22,6 +27,7 @@ const transactions = [
     transactionDate: '2018-07-02',
     createdAt: '2018-08-04T21:26:56.000Z',
     updatedAt: '2018-08-04T21:27:07.000Z',
+    Category,
   },
   {
     id: 2,
@@ -33,6 +39,7 @@ const transactions = [
     transactionDate: '2018-08-04',
     createdAt: '2018-08-04T19:08:54.000Z',
     updatedAt: '2018-08-04T19:08:54.000Z',
+    Category,
   },
   {
     id: 1,
@@ -44,6 +51,7 @@ const transactions = [
     transactionDate: '2018-08-04',
     createdAt: '2018-08-04T19:08:54.000Z',
     updatedAt: '2018-08-04T19:08:54.000Z',
+    Category,
   },
 ];
 
@@ -64,9 +72,18 @@ jest.mock('../../../src/services/transactions', () => ({
 }));
 
 describe('TransactionList Component', () => {
+  beforeAll(() => {
+    global.localStorage = {
+      getItem: jest.fn().mockReturnValue(JSON.stringify({
+        id: '1',
+        name: 'name',
+      })),
+    };
+  });
+
   describe('Render', () => {
     it('default', () => {
-      const wrapper = shallowMount(TransactionList, { store, localVue });
+      const wrapper = shallowMount(TransactionList, { store, localVue, router });
 
       expect(wrapper.isVueInstance).toBeTruthy();
       expect(wrapper.element).toMatchSnapshot();
@@ -77,11 +94,10 @@ describe('TransactionList Component', () => {
         MdTab: '<div class="md-tab-stubbed" />',
       };
 
-      const wrapper = mount(TransactionList, { stubs, store, localVue });
+      const wrapper = mount(TransactionList, { stubs, store, localVue, router });
       wrapper.setData({
         transactions,
       });
-      // wrapper.vm.$forceUpdate();
 
       expect(wrapper.isVueInstance).toBeTruthy();
       expect(wrapper.element).toMatchSnapshot();

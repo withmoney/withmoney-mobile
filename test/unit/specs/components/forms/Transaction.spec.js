@@ -6,7 +6,7 @@ const localVue = createLocalVue();
 
 localVue.use(VueMaterial);
 
-const mock = {
+const mockAccounts = {
   data: {
     data: [
       {
@@ -39,8 +39,44 @@ const mock = {
   },
 };
 
+const mockCategories = {
+  data: {
+    data: [
+      {
+        id: 2,
+        UserId: 1,
+        name: 'Lanche',
+        type: 'out',
+        initalValue: '650.00',
+        createdAt: '2018-08-04T14:33:21.000Z',
+        updatedAt: '2018-08-04T14:33:21.000Z',
+      },
+      {
+        id: 1,
+        UserId: 1,
+        name: 'Salario',
+        type: 'in',
+        createdAt: '2018-08-04T14:33:21.000Z',
+        updatedAt: '2018-08-04T14:33:21.000Z',
+      },
+    ],
+    pagination: {
+      totalItems: 2,
+      currentPage: 1,
+      perPage: 100,
+      totalPages: 1,
+      nextPage: null,
+      previousPage: null,
+    },
+  },
+};
+
 jest.mock('../../../../../src/services/accounts', () => ({
-  get: () => Promise.resolve(mock),
+  get: () => Promise.resolve(mockAccounts),
+}));
+
+jest.mock('../../../../../src/services/categories', () => ({
+  get: () => Promise.resolve(mockCategories),
 }));
 
 describe('Transaction Component', () => {
