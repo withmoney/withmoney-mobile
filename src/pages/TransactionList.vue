@@ -1,7 +1,7 @@
 <template>
   <div class="full-height">
     <toolbar v-on:update:stateMonth="getTransactions" />
-    <md-tabs>
+    <md-tabs id="tabs-type">
       <md-tab md-label="Entradas" @click="onChangeTab('in')"></md-tab>
       <md-tab md-label="Saidas" @click="onChangeTab('out')"></md-tab>
     </md-tabs>
@@ -17,7 +17,7 @@
         v-for="transaction in transactions"
         :key="transaction.id"
         :id="`transaction-${transaction.id}`"
-         @click="onSelectTransaction(transaction)"
+          @click="onSelectTransaction(transaction)"
       >
         <md-table-cell>{{decorateDate(transaction.transactionDate)}}</md-table-cell>
         <md-table-cell>{{transaction.name}}</md-table-cell>
@@ -28,7 +28,11 @@
         </md-table-cell>
       </md-table-row>
     </md-table>
-    <md-button class="md-fab md-primary menu-speed" to="/transaction-new">
+
+    <md-button
+      class="md-fab md-primary menu-speed"
+      :to="{ path: '/transaction-new', query: { type } }"
+    >
       <md-icon>note_add</md-icon>
     </md-button>
   </div>
@@ -46,7 +50,7 @@ export default {
   components: { Toolbar, IsPaid },
   data() {
     return {
-      type: 'in',
+      type: typeof this.$route.query.type !== 'undefined' ? this.$route.query.type : 'in',
       transactions: [],
     };
   },
@@ -60,7 +64,8 @@ export default {
     },
     onChangeTab(type) {
       this.type = type;
-      this.getTransactions();
+
+      this.$router.replace({ query: { type } });
     },
     async getTransactions() {
       const start = Moment(this.state_month).startOf('month').toISOString();
@@ -80,6 +85,9 @@ export default {
   },
   created() {
     this.getTransactions();
+  },
+  watch: {
+    '$route.query.type': 'getTransactions',
   },
 };
 </script>

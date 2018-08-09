@@ -10,6 +10,7 @@
     </md-toolbar>
     <transaction-form
       :transactionDate="state_month.format()"
+      :type="type"
       :onSave="onSave"
     />
   </div>
@@ -24,6 +25,11 @@ export default {
   components: {
     TransactionForm,
   },
+  data() {
+    return {
+      type: typeof this.$route.query.type !== 'undefined' ? this.$route.query.type : 'in',
+    };
+  },
   computed: {
     ...mapGetters(['state_month']),
   },
@@ -35,7 +41,10 @@ export default {
         this.$store.dispatch('showFlashMessage', 'Transanção salva com sucesso!');
       }
 
-      this.$router.push('/');
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
   },
 };

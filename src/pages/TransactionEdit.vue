@@ -63,7 +63,10 @@ export default {
         this.$store.dispatch('showFlashMessage', 'Transanção salva com sucesso!');
       }
 
-      this.$router.push('/');
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
     async getTransaction() {
       const data = await Transaction.getTransaction(this.$route.params.id);
@@ -84,7 +87,10 @@ export default {
 
         this.$store.dispatch('showFlashMessage', 'Transação excluida com sucesso');
 
-        this.$router.push('/');
+        this.$router.push({
+          path: '/',
+          query: { type: this.type },
+        });
       } catch (e) {
         this.$store.dispatch('showFlashMessage', e.message);
       }
