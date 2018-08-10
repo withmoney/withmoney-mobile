@@ -11,7 +11,7 @@ import store from '../store';
 Vue.use(Router);
 
 const insecure = (to, from, next) => {
-  const token = window.localStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
   if (!store.getters.user && !token) {
     next();
@@ -22,8 +22,8 @@ const insecure = (to, from, next) => {
 };
 
 const secure = (to, from, next) => {
-  const token = window.localStorage.getItem('token');
-  const user = window.localStorage.getItem('user');
+  const token = localStorage.getItem('token');
+  const user = localStorage.getItem('user');
 
   store.dispatch('addUser', JSON.parse(user));
 

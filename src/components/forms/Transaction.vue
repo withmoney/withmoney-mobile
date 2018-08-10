@@ -33,6 +33,19 @@
             </md-option>
           </md-select>
         </md-field>
+        <md-field>
+          <label for="CategoryId">Category</label>
+          <md-select v-model="CategoryIdMutable" name="CategoryId" id="category">
+            <md-option
+            v-for="category in categories"
+            :key="category.id"
+            :value="category.id"
+            :id="`category-${category.id}`"
+            >
+              {{category.name}}
+            </md-option>
+          </md-select>
+        </md-field>
         <div>
           <md-switch v-model="isPaidMutable" class="md-primary" id="isPaid">IsPaid?</md-switch>
         </div>
@@ -51,6 +64,7 @@
 
 <script>
 import Accounts from '../../services/accounts';
+import Categories from '../../services/categories';
 
 export default {
   props: {
@@ -63,6 +77,10 @@ export default {
       default: '',
     },
     AccountId: {
+      type: Number,
+      default: 0,
+    },
+    CategoryId: {
       type: Number,
       default: 0,
     },
@@ -86,6 +104,7 @@ export default {
   data() {
     return {
       accounts: [],
+      categories: [],
       isLoading: false,
       nameMutable: this.name,
       valueMutable: this.value,
@@ -93,6 +112,7 @@ export default {
       typeMutable: this.type,
       isPaidMutable: this.isPaid,
       AccountIdMutable: this.AccountId,
+      CategoryIdMutable: this.CategoryId,
     };
   },
   methods: {
@@ -103,6 +123,7 @@ export default {
         name: this.nameMutable,
         value: this.valueMutable,
         AccountId: this.AccountIdMutable,
+        CategoryId: this.CategoryIdMutable,
         type: this.typeMutable,
         isPaid: this.isPaidMutable,
         transactionDate: this.transactionDateMutable,
@@ -110,13 +131,22 @@ export default {
 
       this.isLoading = false;
     },
+
     async getAccounts() {
       const { data } = await Accounts.get();
       this.accounts = data;
     },
+    async getCategories() {
+      const { data } = await Categories.get({
+        type: this.typeMutable,
+      });
+      // this.categories = data.map(category => category.name);
+      this.categories = data;
+    },
   },
-  created() {
-    this.getAccounts();
+  async created() {
+    await this.getAccounts();
+    await this.getCategories();
   },
 };
 </script>

@@ -10,6 +10,7 @@
     </md-toolbar>
     <transaction-form
       :transactionDate="state_month.format()"
+      :type="type"
       :onSave="onSave"
     />
   </div>
@@ -19,23 +20,16 @@
 import { mapGetters } from 'vuex';
 import TransactionForm from '../components/forms/Transaction';
 import Transaction from '../services/transactions';
-// import Accounts from '../services/accounts';
 
 export default {
   components: {
     TransactionForm,
   },
-  // data() {
-  //   return {
-  //     // name: '',
-  //     // value: '',
-  //     // AccountId: 0,
-  //     // type: 'out',
-  //     // isPaid: false,
-  //     // transactionDate: new Date(),
-  //     // accounts: [],
-  //   };
-  // },
+  data() {
+    return {
+      type: typeof this.$route.query.type !== 'undefined' ? this.$route.query.type : 'in',
+    };
+  },
   computed: {
     ...mapGetters(['state_month']),
   },
@@ -47,11 +41,11 @@ export default {
         this.$store.dispatch('showFlashMessage', 'Transanção salva com sucesso!');
       }
 
-      this.$router.push('/');
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
-  },
-  mounted() {
-    // this.transactionDate = this.state_month.format();
   },
 };
 </script>

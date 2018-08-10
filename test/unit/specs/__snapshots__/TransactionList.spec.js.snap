@@ -6,7 +6,9 @@ exports[`TransactionList Component Render default 1`] = `
 >
   <toolbar-stub />
    
-  <mdtabs-stub>
+  <mdtabs-stub
+    id="tabs-type"
+  >
     <mdtab-stub />
      
     <mdtab-stub />
@@ -89,6 +91,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
    
   <div
     class="md-tabs md-alignment-left md-no-transition md-theme-default"
+    id="tabs-type"
   >
     <div
       class="md-tabs-navigation md-elevation-0"
@@ -108,12 +111,12 @@ exports[`TransactionList Component Render with transactions 1`] = `
       >
         <div
           class="md-tab-stubbed"
-          md-label="Fixas"
+          md-label="Entradas"
         />
          
         <div
           class="md-tab-stubbed"
-          md-label="Variáveis"
+          md-label="Saidas"
         />
       </div>
     </div>
@@ -139,6 +142,20 @@ exports[`TransactionList Component Render with transactions 1`] = `
             class="md-table-row"
           >
             <!---->
+             
+            <th
+              class="md-table-head"
+            >
+              <div
+                class="md-table-head-container"
+              >
+                <div
+                  class="md-table-head-label"
+                >
+                  Data
+                </div>
+              </div>
+            </th>
              
             <th
               class="md-table-head"
@@ -177,7 +194,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
                 <div
                   class="md-table-head-label"
                 >
-                  Data
+                  Categoria
                 </div>
               </div>
             </th>
@@ -196,28 +213,6 @@ exports[`TransactionList Component Render with transactions 1`] = `
                 </div>
               </div>
             </th>
-             
-            <th
-              class="md-table-head"
-              style="width: 60px;"
-            >
-              <div
-                class="md-table-head-container md-ripple md-disabled"
-              >
-                <div
-                  class="md-table-head-label"
-                >
-                  <!---->
-                  
-
-      
-
-      
-                  <!---->
-                </div>
-                 
-              </div>
-            </th>
           </tr>
            
           <tr
@@ -225,6 +220,16 @@ exports[`TransactionList Component Render with transactions 1`] = `
             id="transaction-3"
           >
             <!---->
+             
+            <td
+              class="md-table-cell"
+            >
+              <div
+                class="md-table-cell-container"
+              >
+                07/02
+              </div>
+            </td>
              
             <td
               class="md-table-cell"
@@ -252,7 +257,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
               <div
                 class="md-table-cell-container"
               >
-                2018-07-02
+                Lanche
               </div>
             </td>
              
@@ -269,6 +274,12 @@ exports[`TransactionList Component Render with transactions 1`] = `
                 </i>
               </div>
             </td>
+          </tr>
+          <tr
+            class="md-table-row"
+            id="transaction-2"
+          >
+            <!---->
              
             <td
               class="md-table-cell"
@@ -276,33 +287,9 @@ exports[`TransactionList Component Render with transactions 1`] = `
               <div
                 class="md-table-cell-container"
               >
-                <button
-                  class="md-button md-icon-button md-theme-default"
-                  type="button"
-                >
-                  <div
-                    class="md-ripple"
-                  >
-                    <div
-                      class="md-button-content"
-                    >
-                      <i
-                        class="md-icon md-icon-font md-theme-default"
-                      >
-                        chevron_right
-                      </i>
-                    </div>
-                     
-                  </div>
-                </button>
+                08/04
               </div>
             </td>
-          </tr>
-          <tr
-            class="md-table-row"
-            id="transaction-2"
-          >
-            <!---->
              
             <td
               class="md-table-cell"
@@ -330,7 +317,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
               <div
                 class="md-table-cell-container"
               >
-                2018-08-04
+                Lanche
               </div>
             </td>
              
@@ -347,6 +334,12 @@ exports[`TransactionList Component Render with transactions 1`] = `
                 </i>
               </div>
             </td>
+          </tr>
+          <tr
+            class="md-table-row"
+            id="transaction-1"
+          >
+            <!---->
              
             <td
               class="md-table-cell"
@@ -354,33 +347,9 @@ exports[`TransactionList Component Render with transactions 1`] = `
               <div
                 class="md-table-cell-container"
               >
-                <button
-                  class="md-button md-icon-button md-theme-default"
-                  type="button"
-                >
-                  <div
-                    class="md-ripple"
-                  >
-                    <div
-                      class="md-button-content"
-                    >
-                      <i
-                        class="md-icon md-icon-font md-theme-default"
-                      >
-                        chevron_right
-                      </i>
-                    </div>
-                     
-                  </div>
-                </button>
+                08/04
               </div>
             </td>
-          </tr>
-          <tr
-            class="md-table-row"
-            id="transaction-1"
-          >
-            <!---->
              
             <td
               class="md-table-cell"
@@ -408,7 +377,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
               <div
                 class="md-table-cell-container"
               >
-                2018-08-04
+                Lanche
               </div>
             </td>
              
@@ -425,34 +394,6 @@ exports[`TransactionList Component Render with transactions 1`] = `
                 </i>
               </div>
             </td>
-             
-            <td
-              class="md-table-cell"
-            >
-              <div
-                class="md-table-cell-container"
-              >
-                <button
-                  class="md-button md-icon-button md-theme-default"
-                  type="button"
-                >
-                  <div
-                    class="md-ripple"
-                  >
-                    <div
-                      class="md-button-content"
-                    >
-                      <i
-                        class="md-icon md-icon-font md-theme-default"
-                      >
-                        chevron_right
-                      </i>
-                    </div>
-                     
-                  </div>
-                </button>
-              </div>
-            </td>
           </tr>
         </tbody>
       </table>
@@ -462,9 +403,9 @@ exports[`TransactionList Component Render with transactions 1`] = `
     <!---->
   </div>
    
-  <button
+  <a
     class="md-button md-fab md-primary menu-speed md-theme-default"
-    type="button"
+    href="#/transaction-new?type=in"
   >
     <div
       class="md-ripple"
@@ -480,6 +421,6 @@ exports[`TransactionList Component Render with transactions 1`] = `
       </div>
        
     </div>
-  </button>
+  </a>
 </div>
 `;

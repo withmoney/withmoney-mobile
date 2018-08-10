@@ -1,4 +1,5 @@
 import expect from 'expect';
+import moment from 'moment';
 
 describe('Transaction', () => {
   let transaction;
@@ -30,15 +31,16 @@ describe('Transaction', () => {
   });
 
   it('add', () => {
-    cy.get('a[href="#/transaction-new"]').click();
+    const date = moment();
+    cy.get('#tabs-type button:not(.md-active)').click();
+    cy.get('a[href="#/transaction-new?type=out"]').click();
     cy.location().should((loc) => {
-      expect(loc.hash).toBe('#/transaction-new');
+      expect(loc.hash).toBe('#/transaction-new?type=out');
     });
     cy.get('#name').type('Almoço');
     cy.get('#value').type('10');
     cy.get('#transactionDate input[type="text"]').clear();
-    cy.get('#transactionDate input[type="text"]').type('2018-07-01', { force: true });
-    // cy.get('#transactionDate input[type="text"]');
+    cy.get('#transactionDate input[type="text"]').type(`2018-${date.format('MM')}-01`, { force: true });
 
     cy.get('.md-dialog-actions .md-button:nth-child(2)').click();
     cy.wait(500);
@@ -48,6 +50,9 @@ describe('Transaction', () => {
 
     cy.get('#account').click({ force: true });
     cy.get('#account-2').click();
+
+    cy.get('#category').click({ force: true });
+    cy.get('#category-1').click();
 
     cy.get('label[for="isPaid"]').click({ force: true });
 
@@ -63,15 +68,18 @@ describe('Transaction', () => {
     cy.wait(500);
 
     cy.location().should((loc) => {
-      expect(loc.hash).toBe('#/');
+      expect(loc.hash).toBe('#/?type=out');
     });
     cy.get('.md-snackbar-content span').contains('Transanção salva com sucesso!');
-    cy.get('.md-snackbar .md-button.md-primary').click();
+    cy.wait(500);
   });
 
   it('edit', () => {
+    const date = moment();
+    cy.get('#tabs-type button:not(.md-active)').click();
+
     cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
-    cy.get(`#transaction-${transaction.id} button`).click({ force: true });
+    cy.get(`#transaction-${transaction.id}`).click({ force: true });
     cy.wait('@getTransaction').then((xhr) => {
       expect(xhr.response.body).toHaveProperty('id');
       expect(xhr.response.body.id).toBe(transaction.id);
@@ -85,7 +93,7 @@ describe('Transaction', () => {
     cy.get('#value').clear();
     cy.get('#value').type('15');
     cy.get('#transactionDate input[type="text"]').clear();
-    cy.get('#transactionDate input[type="text"]').type('2018-07-02', { force: true });
+    cy.get('#transactionDate input[type="text"]').type(`2018-${date.format('MM')}-01`, { force: true });
 
     cy.get('.md-dialog-actions .md-button:nth-child(2)').click();
     cy.wait(500);
@@ -95,6 +103,9 @@ describe('Transaction', () => {
 
     cy.get('#account').click({ force: true });
     cy.get('#account-1').click();
+
+    cy.get('#category').click({ force: true });
+    cy.get('#category-2').click();
 
     cy.get('label[for="isPaid"]').click({ force: true });
 
@@ -110,15 +121,16 @@ describe('Transaction', () => {
     cy.wait(500);
 
     cy.location().should((loc) => {
-      expect(loc.hash).toBe('#/');
+      expect(loc.hash).toBe('#/?type=in');
     });
     cy.get('.md-snackbar-content span').contains('Transanção salva com sucesso!');
     cy.get('.md-snackbar .md-button.md-primary').click();
   });
 
   it('delete', () => {
+    cy.get('#tabs-type button:not(.md-active)').click();
     cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
-    cy.get(`#transaction-${transaction.id} button`).click({ force: true });
+    cy.get(`#transaction-${transaction.id}`).click({ force: true });
     cy.wait('@getTransaction').then((xhr) => {
       expect(xhr.response.body).toHaveProperty('id');
       expect(xhr.response.body.id).toBe(transaction.id);

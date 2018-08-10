@@ -16,6 +16,7 @@
       :name="name"
       :value="value"
       :AccountId="AccountId"
+      :CategoryId="CategoryId"
       :type="type"
       :isPaid="isPaid"
       :transactionDate="transactionDate"
@@ -44,6 +45,7 @@ export default {
       name: '',
       value: '',
       AccountId: 0,
+      CategoryId: 0,
       type: 'out',
       isPaid: false,
       transactionDate: '',
@@ -61,7 +63,10 @@ export default {
         this.$store.dispatch('showFlashMessage', 'Transanção salva com sucesso!');
       }
 
-      this.$router.push('/');
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
     async getTransaction() {
       const data = await Transaction.getTransaction(this.$route.params.id);
@@ -72,19 +77,19 @@ export default {
       this.transactionDate = data.transactionDate;
       this.type = data.type;
       this.AccountId = data.AccountId;
+      this.CategoryId = data.CategoryId;
 
       this.transaction = data;
     },
     async onConfirm() {
-      try {
-        await Transaction.destroy(this.$route.params.id);
+      await Transaction.destroy(this.$route.params.id);
 
-        this.$store.dispatch('showFlashMessage', 'Transação excluida com sucesso');
+      this.$store.dispatch('showFlashMessage', 'Transação excluida com sucesso');
 
-        this.$router.push('/');
-      } catch (e) {
-        this.$store.dispatch('showFlashMessage', e.message);
-      }
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
   },
   created() {

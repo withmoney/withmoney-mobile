@@ -12,6 +12,7 @@
     "e2e": "start-server-and-test start http://localhost:8080 cypress",
     "test": "npm run unit && npm run e2e && codecov",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
+    "coverage": "http-server ./coverage/lcov-report -o",
     "build": "node build/build.js"
   },
   "dependencies": {

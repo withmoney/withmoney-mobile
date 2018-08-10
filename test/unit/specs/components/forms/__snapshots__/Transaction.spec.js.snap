@@ -66,6 +66,16 @@ exports[`Transaction Component Render default 1`] = `
         <mdselect-stub />
       </mdfield-stub>
        
+      <mdfield-stub>
+        <label
+          for="CategoryId"
+        >
+          Category
+        </label>
+         
+        <mdselect-stub />
+      </mdfield-stub>
+       
       <div>
         <mdswitch-stub
           class="md-primary"
