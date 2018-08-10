@@ -82,18 +82,14 @@ export default {
       this.transaction = data;
     },
     async onConfirm() {
-      try {
-        await Transaction.destroy(this.$route.params.id);
+      await Transaction.destroy(this.$route.params.id);
 
-        this.$store.dispatch('showFlashMessage', 'Transação excluida com sucesso');
+      this.$store.dispatch('showFlashMessage', 'Transação excluida com sucesso');
 
-        this.$router.push({
-          path: '/',
-          query: { type: this.type },
-        });
-      } catch (e) {
-        this.$store.dispatch('showFlashMessage', e.message);
-      }
+      this.$router.push({
+        path: '/',
+        query: { type: this.type },
+      });
     },
   },
   created() {
