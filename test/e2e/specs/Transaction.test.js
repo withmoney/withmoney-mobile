@@ -32,7 +32,6 @@ describe('Transaction', () => {
 
   it('add', () => {
     const date = moment();
-    // cy.get('#tabs-type button:not(.md-active)').click();
     cy.get('a[href="#/transaction-new?type=out"]').click();
     cy.location().should((loc) => {
       expect(loc.hash).toBe('#/transaction-new?type=out');
@@ -76,8 +75,6 @@ describe('Transaction', () => {
 
   it('edit', () => {
     const date = moment();
-    // cy.get('#tabs-type button:not(.md-active)').click();
-
     cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
     cy.get(`#transaction-${transaction.id}`).click({ force: true });
     cy.wait('@getTransaction').then((xhr) => {
@@ -124,12 +121,10 @@ describe('Transaction', () => {
       expect(loc.hash).toBe('#/?type=out');
     });
     cy.get('.md-snackbar-content span').contains('Transanção salva com sucesso!');
-    // cy.get('.md-snackbar .md-button.md-primary').click());
     cy.wait(500);
   });
 
   it('delete', () => {
-    // cy.get('#tabs-type button:not(.md-active)').click();
     cy.route('GET', new RegExp(`/api/v1/transactions/${transaction.id}`, 'i')).as('getTransaction');
     cy.get(`#transaction-${transaction.id}`).click({ force: true });
     cy.wait('@getTransaction').then((xhr) => {
