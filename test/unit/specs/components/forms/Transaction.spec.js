@@ -72,11 +72,11 @@ const mockCategories = {
 };
 
 jest.mock('../../../../../src/services/accounts', () => ({
-  get: () => Promise.resolve(mockAccounts),
+  list: () => Promise.resolve(mockAccounts),
 }));
 
 jest.mock('../../../../../src/services/categories', () => ({
-  get: () => Promise.resolve(mockCategories),
+  list: () => Promise.resolve(mockCategories),
 }));
 
 describe('Transaction Component', () => {

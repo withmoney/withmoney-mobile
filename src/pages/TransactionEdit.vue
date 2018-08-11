@@ -51,7 +51,6 @@ export default {
       transactionDate: '',
       accounts: [],
       transaction: null,
-      isLoading: false,
       showConfirmDelete: false,
     };
   },
