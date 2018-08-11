@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-toolbar>
-      <router-link to="/">
+      <router-link :to="{ path: '/', query: { type } }">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
         </md-button>
