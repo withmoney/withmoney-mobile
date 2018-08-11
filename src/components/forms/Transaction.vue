@@ -133,14 +133,14 @@ export default {
     },
 
     async getAccounts() {
-      const { data } = await Accounts.get();
+      const { data } = await Accounts.list();
       this.accounts = data;
     },
     async getCategories() {
-      const { data } = await Categories.get({
+      const { data } = await Categories.list({
         type: this.typeMutable,
       });
-      // this.categories = data.map(category => category.name);
+
       this.categories = data;
     },
   },

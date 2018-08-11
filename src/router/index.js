@@ -6,6 +6,12 @@ import TransactionEdit from '@/pages/TransactionEdit';
 import TransactionList from '@/pages/TransactionList';
 import Reports from '@/pages/Reports';
 import Settings from '@/pages/Settings';
+import Accounts from '@/pages/settings/Accounts';
+import AccountNew from '@/pages/settings/AccountNew';
+import AccountEdit from '@/pages/settings/AccountEdit';
+import Categories from '@/pages/settings/Categories';
+import CategoryNew from '@/pages/settings/CategoryNew';
+import CategoryEdit from '@/pages/settings/CategoryEdit';
 import store from '../store';
 
 Vue.use(Router);
@@ -71,6 +77,42 @@ export default new Router({
       path: '/settings',
       name: 'Settings',
       component: Settings,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/accounts',
+      name: 'Accounts',
+      component: Accounts,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/accounts/new',
+      name: 'AccountNew',
+      component: AccountNew,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/accounts/edit/:id',
+      name: 'AccountEdit',
+      component: AccountEdit,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/categories',
+      name: 'Categories',
+      component: Categories,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/categories/new',
+      name: 'CategoryNew',
+      component: CategoryNew,
+      beforeEnter: secure,
+    },
+    {
+      path: '/settings/categories/edit/:id',
+      name: 'CategoryEdit',
+      component: CategoryEdit,
       beforeEnter: secure,
     },
   ],

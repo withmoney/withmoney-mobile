@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account Component Render default 1`] = `
+<form>
+  <mdcard-stub>
+    <mdcardcontent-stub>
+      <mdfield-stub>
+        <label
+          for="name"
+        >
+          Name
+        </label>
+         
+        <mdinput-stub />
+      </mdfield-stub>
+       
+      <mdfield-stub>
+        <input
+          class="md-input"
+          id="initalValue"
+          type="text"
+        />
+         
+        <mdicon-stub>
+          attach_money
+        </mdicon-stub>
+      </mdfield-stub>
+       
+      <mdfield-stub>
+        <label
+          for="type"
+        >
+          Type
+        </label>
+         
+        <mdselect-stub>
+          <mdoption-stub
+            id="type-investing"
+          >
+            
+            Investimento
+          
+          </mdoption-stub>
+          <mdoption-stub
+            id="type-wallet"
+          >
+            
+            Carteira
+          
+          </mdoption-stub>
+          <mdoption-stub
+            id="type-checking_account"
+          >
+            
+            Conta Bancaria
+          
+          </mdoption-stub>
+        </mdselect-stub>
+      </mdfield-stub>
+    </mdcardcontent-stub>
+     
+    <mdcardactions-stub>
+      <mdbutton-stub
+        class="md-primary"
+        id="save"
+      >
+        Save
+      </mdbutton-stub>
+    </mdcardactions-stub>
+  </mdcard-stub>
+</form>
+`;
