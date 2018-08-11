@@ -111,11 +111,13 @@ exports[`TransactionList Component Render with transactions 1`] = `
       >
         <div
           class="md-tab-stubbed"
+          id="tab-in"
           md-label="Entradas"
         />
          
         <div
           class="md-tab-stubbed"
+          id="tab-out"
           md-label="Saidas"
         />
       </div>
@@ -405,7 +407,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
    
   <a
     class="md-button md-fab md-primary menu-speed md-theme-default"
-    href="#/transaction-new?type=in"
+    href="#/transaction-new?type=out"
   >
     <div
       class="md-ripple"

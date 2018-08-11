@@ -1,9 +1,9 @@
 <template>
   <div class="full-height">
     <toolbar v-on:update:stateMonth="getTransactions" />
-    <md-tabs id="tabs-type">
-      <md-tab md-label="Entradas" @click="onChangeTab('in')"></md-tab>
-      <md-tab md-label="Saidas" @click="onChangeTab('out')"></md-tab>
+    <md-tabs id="tabs-type" :md-active-tab="`tab-${type}`">
+      <md-tab md-label="Entradas" id="tab-in" @click="onChangeTab('in')"></md-tab>
+      <md-tab md-label="Saidas" id="tab-out" @click="onChangeTab('out')"></md-tab>
     </md-tabs>
     <md-table md-card>
       <md-table-row>
@@ -50,7 +50,7 @@ export default {
   components: { Toolbar, IsPaid },
   data() {
     return {
-      type: typeof this.$route.query.type !== 'undefined' ? this.$route.query.type : 'in',
+      type: typeof this.$route.query.type !== 'undefined' ? this.$route.query.type : 'out',
       transactions: [],
     };
   },
