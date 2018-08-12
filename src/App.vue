@@ -47,10 +47,27 @@ export default {
     color: rgb(0, 0, 0) !important;
     -webkit-text-fill-color: #000 !important;
   }
-
+  .content-scroll {
+    height: calc(100vh - 72px - 56px);
+    overflow-y: scroll;
+    padding-bottom: 100px;
+  }
   .menu-speed {
     position: absolute;
     bottom: 20px;
     right: 20px;
+  }
+  .md-table-head-label {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .md-table-cell-container{
+    padding: 6px 6px 6px 6px;
+  }
+  .md-table-cell:last-child .md-table-cell-container {
+    padding-right: 0;
+  }
+  .md-table-cell-center {
+    text-align: center;
   }
 </style>
