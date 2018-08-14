@@ -53,15 +53,15 @@
             title="Entradas"
             type="in"
             :amount="amountInPaid"
-            :total="calcTotalInPaid"
-            :partial="calcTotalIn"
+            :total.sync="calcTotalInPaid"
+            :partial.sync="calcTotalIn"
           />
           <progress-bar-transaction
             title="Saídas"
             type="out"
             :amount="amountOutPaid"
-            :total="calcTotalOutPaid"
-            :partial="calcTotalOut"
+            :total.sync="calcTotalOutPaid"
+            :partial.sync="calcTotalOut"
           />
         </md-card-content>
       </md-card>

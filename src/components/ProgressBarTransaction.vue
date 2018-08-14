@@ -9,11 +9,11 @@
     <div class="md-layout">
       <div class="md-layout-item">
         <span>Realizado: </span>
-        <span :class="`text-${type}`">{{floatToReal(total)}}</span>
+        <span :class="`text-${type}`">{{totalMutable}}</span>
       </div>
       <div class="md-layout-item">
         <span>Previsto: </span>
-        <span class="text-partial">{{floatToReal(partial)}}</span>
+        <span class="text-partial">{{(partialMutable)}}</span>
       </div>
     </div>
   </div>
@@ -45,8 +45,13 @@ export default {
       required: true,
     },
   },
-  methods: {
-    floatToReal,
+  computed: {
+    totalMutable() {
+      return floatToReal(this.total);
+    },
+    partialMutable() {
+      return floatToReal(this.partial);
+    },
   },
 };
 </script>
