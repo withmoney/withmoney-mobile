@@ -1,4 +1,4 @@
-import { compose } from 'ramda';
+import { compose, filter, reduce, map } from 'ramda';
 import { parseItem } from './parse';
 import {
   filterIn,
@@ -24,19 +24,19 @@ const parseValue = compose(
   parseValueToFloat,
 );
 
-const filterOutTransactions = transactions => transactions.filter(filterOut);
+const filterOutTransactions = filter(filterOut);
 
-const filterInTransactions = transactions => transactions.filter(filterIn);
+const filterInTransactions = filter(filterIn);
 
-const filterUnpaidTransactions = transactions => transactions.filter(filterUnpaid);
+const filterUnpaidTransactions = filter(filterUnpaid);
 
-const filterPaidTransactions = transactions => transactions.filter(filterPaid);
+const filterPaidTransactions = filter(filterPaid);
 
-const reduceTransactions = transactions => transactions.reduce((cur, acc) => acc.value + cur, 0);
+const reduceTransactions = reduce((cur, acc) => acc.value + cur, 0);
 
-const mapValueToFloat = transactions => transactions.map(parseItem(parseValueToFloat));
+const mapValueToFloat = map(parseItem(parseValueToFloat));
 
-const mapparseValue = transactions => transactions.map(parseItem(parseValue));
+const mapparseValue = map(parseItem(parseValue));
 
 const reduceAndValueToFloat = compose(
   reduceTransactions,
