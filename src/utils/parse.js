@@ -25,6 +25,12 @@ export const parseMultDate = (pro, scheme = {}) => pro.then(({ data }) => {
   return Promise.resolve(renameFields(data, scheme));
 });
 
+export const parseItem = parser => data => parser(data);
+
+export const parseData = (parser, data) => (
+  Array.isArray(data) ? data.map(parseItem(parser)) : parseItem(parser)(data)
+);
+
 export const mountQuery = (url, query = {}) => {
   if (Object.keys(query).length) {
     return `${url}?${qs.stringify(query)}`;
