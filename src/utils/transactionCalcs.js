@@ -1,3 +1,4 @@
+import { compose } from 'ramda';
 import { parseItem } from './parse';
 import {
   filterIn,
@@ -5,13 +6,6 @@ import {
   filterPaid,
   filterUnpaid,
 } from './filters';
-
-/*
-total to pay
-total paid
-total to pay and paid
-
-*/
 
 export const stringToFloat = string => parseFloat(string);
 
@@ -25,48 +19,73 @@ const parseInvertValueOut = transaction => ({
   value: transaction.type === 'out' ? transaction.value * -1 : transaction.value,
 });
 
-const parseValue = transaction => parseInvertValueOut(parseValueToFloat(transaction));
+const parseValue = compose(
+  parseInvertValueOut,
+  parseValueToFloat,
+);
 
-export const calcTotalInAndOut = transactions => transactions
-  .map(parseItem(parseValue))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const filterOutTransactions = transactions => transactions.filter(filterOut);
 
-export const calcTotalOut = transactions => transactions
-  .filter(filterOut)
-  .map(parseItem(parseValueToFloat))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const filterInTransactions = transactions => transactions.filter(filterIn);
 
-export const calcTotalIn = transactions => transactions
-  .filter(filterIn)
-  .map(parseItem(parseValue))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const filterUnpaidTransactions = transactions => transactions.filter(filterUnpaid);
 
+const filterPaidTransactions = transactions => transactions.filter(filterPaid);
 
-export const calcTotalOutUnpaid = transactions => transactions
-  .filter(filterOut)
-  .filter(filterUnpaid)
-  .map(parseItem(parseValueToFloat))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const reduceTransactions = transactions => transactions.reduce((cur, acc) => acc.value + cur, 0);
 
-export const calcTotalInUnpaid = transactions => transactions
-  .filter(filterIn)
-  .filter(filterUnpaid)
-  .map(parseItem(parseValueToFloat))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const mapValueToFloat = transactions => transactions.map(parseItem(parseValueToFloat));
 
-export const calcTotalOutPaid = transactions => transactions
-  .filter(filterOut)
-  .filter(filterPaid)
-  .map(parseItem(parseValueToFloat))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const mapparseValue = transactions => transactions.map(parseItem(parseValue));
 
-export const calcTotalInPaid = transactions => transactions
-  .filter(filterIn)
-  .filter(filterPaid)
-  .map(parseItem(parseValueToFloat))
-  .reduce((cur, acc) => acc.value + cur, 0);
+const reduceAndValueToFloat = compose(
+  reduceTransactions,
+  mapValueToFloat,
+);
+
+const reduceAndValue = compose(
+  reduceTransactions,
+  mapparseValue,
+);
+
+export const calcTotalInAndOut = compose(
+  reduceAndValue,
+);
+
+export const calcTotalIn = compose(
+  reduceAndValue,
+  filterInTransactions,
+);
+
+export const calcTotalOut = compose(
+  reduceAndValueToFloat,
+  filterOutTransactions,
+);
+
+export const calcTotalOutUnpaid = compose(
+  reduceAndValueToFloat,
+  filterOutTransactions,
+  filterUnpaidTransactions,
+);
+
+export const calcTotalInUnpaid = compose(
+  reduceAndValueToFloat,
+  filterInTransactions,
+  filterUnpaidTransactions,
+);
+
+export const calcTotalOutPaid = compose(
+  reduceAndValueToFloat,
+  filterOutTransactions,
+  filterPaidTransactions,
+);
+
+export const calcTotalInPaid = compose(
+  reduceAndValueToFloat,
+  filterInTransactions,
+  filterPaidTransactions,
+);
 
 export const amountInPaid = (totalIn, totalInPaid) => (totalInPaid * 100) / totalIn;
 
 export const amountOutPaid = (totalOut, totalOutPaid) => (totalOutPaid * 100) / totalOut;
-
