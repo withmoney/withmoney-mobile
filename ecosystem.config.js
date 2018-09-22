@@ -10,7 +10,7 @@ module.exports = {
   apps: [
     {
       name: process.env.DEPLOY_NAME,
-      script: 'dist/server.js',
+      script: './server.js',
       env: {
         COMMON_VARIABLE: 'true',
       },
@@ -34,6 +34,7 @@ module.exports = {
       'post-deploy': [
         'npm install',
         'npm run unit',
+        'npm run build',
         `pm2 reload ecosystem.config.js --env production --name ${process.env.DEPLOY_NAME}`,
       ].join(' && '),
     },
