@@ -34,6 +34,7 @@ module.exports = {
       'post-deploy': [
         'npm install',
         'npm run unit',
+        'npm run build',
         `pm2 reload ecosystem.config.js --env production --name ${process.env.DEPLOY_NAME}`,
       ].join(' && '),
     },
