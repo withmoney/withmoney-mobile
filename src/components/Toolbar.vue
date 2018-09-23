@@ -36,7 +36,7 @@ export default {
 
 <style>
 .toolbar {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   z-index: 100;
   width: 100%;

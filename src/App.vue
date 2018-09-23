@@ -59,15 +59,11 @@ export default {
     margin-top: 56px;
   }
   .menu-speed {
-    position: absolute;
-    bottom: 20px;
+    position: absolute !important;
     right: 20px;
-    position: absolute;
-    z-index: 101;
-    bottom: 100px;
+    z-index: 101 !important;
+    bottom: 100px !important;
   }
-
-
 
   input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: rgb(250, 255, 189) !important;
