@@ -4,7 +4,7 @@
       <router-view  />
       <flash-message />
     </div>
-    <md-tabs v-if="user" md-alignment="centered">
+    <md-tabs class="tabs" v-if="user" md-alignment="centered">
       <md-tab id="tab-home" md-label="Transações" md-icon="attach_money" to="/"></md-tab>
       <md-tab id="tab-reports" md-label="Relatórios" md-icon="insert_chart" to="/reports"></md-tab>
       <md-tab id="tab-settings" md-label="Configurações" md-icon="settings" to="/settings"></md-tab>
@@ -33,29 +33,43 @@ export default {
 
 <style>
   #app {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
   }
   #main {
     flex: 1;
-    position: relative;
+    padding-bottom: 72px;
   }
+  .content-scroll {
+    overflow-y: scroll;
+    padding-bottom: 190px;
+    height: calc(100vh - 56px);
+  }
+  .tabs {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .full-height {
+    min-height: calc(100vh - 56px - 72px);
+    margin-top: 56px;
+  }
+  .menu-speed {
+    position: absolute !important;
+    right: 20px;
+    z-index: 101 !important;
+    bottom: 100px !important;
+  }
+
   input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: rgb(250, 255, 189) !important;
     background-image: none !important;
     color: rgb(0, 0, 0) !important;
     -webkit-text-fill-color: #000 !important;
-  }
-  .content-scroll {
-    height: calc(100vh - 72px - 56px);
-    overflow-y: scroll;
-    padding-bottom: 100px;
-  }
-  .menu-speed {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
   }
   .md-table-head-label {
     padding-right: 20px;

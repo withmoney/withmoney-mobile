@@ -1,5 +1,5 @@
 <template>
-  <md-toolbar>
+  <md-toolbar class="toolbar">
     <md-button id="btn-previus-month" @click="toPreviousMonth">
       <md-icon>chevron_left</md-icon> {{previous_month_str}}
     </md-button>
@@ -33,3 +33,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.toolbar {
+  position: fixed !important;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+</style>

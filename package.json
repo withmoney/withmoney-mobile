@@ -5,7 +5,7 @@
   "author": "David Costa <davidcostadev@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --open --config build/webpack.dev.conf.js",
     "start": "npm run build && node ./server.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "cypress": "cypress run --record",

@@ -1,5 +1,5 @@
 <template>
-  <div class="full-height">
+  <div id="transaction-list" class="full-height">
     <toolbar v-on:update:stateMonth="getTransactions" />
     <div class="content-scroll">
       <md-tabs id="tabs-type" :md-active-tab="`tab-${type}`">
@@ -171,16 +171,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .calcs {
   margin-top: 20px;
 }
-.md-layout-item {
+#transaction-list .md-layout-item {
   height: 34px;
   display: flex;
   align-items: center;
 }
-.md-layout-item:last-child {
+#transaction-list .md-layout-item:last-child {
   justify-content: flex-end;
 }
 </style>

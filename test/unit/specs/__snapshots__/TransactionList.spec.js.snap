@@ -3,6 +3,7 @@
 exports[`TransactionList Component Render default 1`] = `
 <div
   class="full-height"
+  id="transaction-list"
 >
   <toolbar-stub />
    
@@ -99,9 +100,10 @@ exports[`TransactionList Component Render default 1`] = `
 exports[`TransactionList Component Render with transactions 1`] = `
 <div
   class="full-height"
+  id="transaction-list"
 >
   <div
-    class="md-toolbar md-theme-default md-elevation-4"
+    class="md-toolbar toolbar md-theme-default md-elevation-4"
   >
     <button
       class="md-button md-theme-default"
