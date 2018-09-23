@@ -52,7 +52,7 @@ export default {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 10;
   }
   .full-height {
     min-height: calc(100vh - 56px - 72px);
