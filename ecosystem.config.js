@@ -10,7 +10,7 @@ module.exports = {
   apps: [
     {
       name: process.env.DEPLOY_NAME,
-      script: 'dist/server.js',
+      script: './server.js',
       env: {
         COMMON_VARIABLE: 'true',
       },
