@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <md-toolbar>
+  <div class="full-height">
+    <md-toolbar class="toolbar">
       <router-link to="/settings/categories">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
@@ -11,19 +11,21 @@
         <md-icon>delete</md-icon>
       </md-button>
     </md-toolbar>
-    <category-form
-      v-if="category"
-      :name="name"
-      :type="type"
-      :onSave="onSave"
-    />
-    <md-dialog-confirm
-      :md-active.sync="showConfirmDelete"
-      md-title="Deseja mesmo excluir essa transação?"
-      md-confirm-text="Sim"
-      md-cancel-text="Não"
-      @md-cancel="showConfirmDelete = false"
-      @md-confirm="onConfirm" />
+    <div class="content-scroll">
+      <category-form
+        v-if="category"
+        :name="name"
+        :type="type"
+        :onSave="onSave"
+      />
+      <md-dialog-confirm
+        :md-active.sync="showConfirmDelete"
+        md-title="Deseja mesmo excluir essa transação?"
+        md-confirm-text="Sim"
+        md-cancel-text="Não"
+        @md-cancel="showConfirmDelete = false"
+        @md-confirm="onConfirm" />
+    </div>
   </div>
 </template>
 

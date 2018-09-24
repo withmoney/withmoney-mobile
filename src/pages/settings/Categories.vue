@@ -1,6 +1,6 @@
 <template>
   <div class="full-height">
-    <md-toolbar>
+    <md-toolbar class="toolbar">
       <router-link to="/settings">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
@@ -8,20 +8,22 @@
       </router-link>
       <h3 class="md-title">Categorias</h3>
     </md-toolbar>
-    <md-content>
-      <md-list v-for="category in categories" :key="category.id">
-        <md-list-item :to="`/settings/categories/edit/${category.id}`">
-          <span>{{category.name}}</span>
-        </md-list-item>
-      </md-list>
-    </md-content>
+    <div class="content-scroll">
+      <md-content>
+        <md-list v-for="category in categories" :key="category.id">
+          <md-list-item :to="`/settings/categories/edit/${category.id}`">
+            <span>{{category.name}}</span>
+          </md-list-item>
+        </md-list>
+      </md-content>
 
-    <md-button
-      class="md-fab md-primary menu-speed"
-      to="/settings/categories/new"
-    >
-      <md-icon>note_add</md-icon>
-    </md-button>
+      <md-button
+        class="md-fab md-primary menu-speed"
+        to="/settings/categories/new"
+      >
+        <md-icon>note_add</md-icon>
+      </md-button>
+    </div>
   </div>
 </template>
 

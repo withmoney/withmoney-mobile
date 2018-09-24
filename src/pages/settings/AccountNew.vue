@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <md-toolbar>
+  <div class="full-height">
+    <md-toolbar class="toolbar">
       <router-link to="/settings/categories">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
@@ -8,7 +8,9 @@
       </router-link>
       <h3 class="md-title">Nova Conta</h3>
     </md-toolbar>
-    <account-form :onSave="onSave"/>
+    <div class="content-scroll">
+      <account-form :onSave="onSave"/>
+    </div>
   </div>
 </template>
 

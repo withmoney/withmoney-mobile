@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <md-toolbar>
+  <div class="full-height">
+    <md-toolbar class="toolbar">
       <router-link :to="{ path: '/', query: { type } }">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
@@ -8,11 +8,13 @@
       </router-link>
       <h3 class="md-title">Add new Transaction</h3>
     </md-toolbar>
-    <transaction-form
-      :transactionDate="state_month.format()"
-      :type="type"
-      :onSave="onSave"
-    />
+    <div class="content-scroll">
+      <transaction-form
+        :transactionDate="state_month.format()"
+        :type="type"
+        :onSave="onSave"
+      />
+    </div>
   </div>
 </template>
 

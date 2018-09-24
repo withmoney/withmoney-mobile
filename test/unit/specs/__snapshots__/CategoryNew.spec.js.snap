@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryNew Component Render default 1`] = `
-<div>
-  <mdtoolbar-stub>
+<div
+  class="full-height"
+>
+  <mdtoolbar-stub
+    class="toolbar"
+  >
     <router-link-stub>
       <mdbutton-stub
         class="md-icon-button"
@@ -20,6 +24,10 @@ exports[`CategoryNew Component Render default 1`] = `
     </h3>
   </mdtoolbar-stub>
    
-  <categoryform-stub />
+  <div
+    class="content-scroll"
+  >
+    <categoryform-stub />
+  </div>
 </div>
 `;
