@@ -41,6 +41,10 @@ export default {
   }
   #main {
     flex: 1;
+  }
+  .full-height {
+    height: calc(100vh);
+    padding-top: 56px;
     padding-bottom: 72px;
   }
   .content-scroll {
@@ -53,10 +57,6 @@ export default {
     bottom: 0;
     width: 100%;
     z-index: 10;
-  }
-  .full-height {
-    min-height: calc(100vh - 56px - 72px);
-    margin-top: 56px;
   }
   .menu-speed {
     position: absolute !important;
