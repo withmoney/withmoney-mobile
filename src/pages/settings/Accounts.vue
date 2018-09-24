@@ -1,6 +1,6 @@
 <template>
   <div class="full-height">
-    <md-toolbar>
+    <md-toolbar class="toolbar">
       <router-link to="/settings">
         <md-button class="md-icon-button">
           <md-icon>keyboard_backspace</md-icon>
@@ -8,21 +8,23 @@
       </router-link>
       <h3 class="md-title">Contas</h3>
     </md-toolbar>
-    <md-content>
-      <md-list v-for="account in accounts" :key="account.id">
-        <md-list-item :to="`/settings/accounts/edit/${account.id}`">
-          <span>{{account.name}}</span>
-          <account-icon :value="account.type" />
-        </md-list-item>
-      </md-list>
-    </md-content>
+    <div class="content-scroll">
+      <md-content>
+        <md-list v-for="account in accounts" :key="account.id">
+          <md-list-item :to="`/settings/accounts/edit/${account.id}`">
+            <span>{{account.name}}</span>
+            <account-icon :value="account.type" />
+          </md-list-item>
+        </md-list>
+      </md-content>
 
-    <md-button
-      class="md-fab md-primary menu-speed"
-      to="/settings/accounts/new"
-    >
-      <md-icon>note_add</md-icon>
-    </md-button>
+      <md-button
+        class="md-fab md-primary menu-speed"
+        to="/settings/accounts/new"
+      >
+        <md-icon>note_add</md-icon>
+      </md-button>
+    </div>
   </div>
 </template>
 

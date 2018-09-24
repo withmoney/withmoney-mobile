@@ -4,7 +4,9 @@ exports[`Categories Component Render default 1`] = `
 <div
   class="full-height"
 >
-  <mdtoolbar-stub>
+  <mdtoolbar-stub
+    class="toolbar"
+  >
     <router-link-stub>
       <mdbutton-stub
         class="md-icon-button"
@@ -22,15 +24,19 @@ exports[`Categories Component Render default 1`] = `
     </h3>
   </mdtoolbar-stub>
    
-  <mdcontent-stub />
-   
-  <mdbutton-stub
-    class="md-fab md-primary menu-speed"
+  <div
+    class="content-scroll"
   >
-    <mdicon-stub>
-      note_add
-    </mdicon-stub>
-  </mdbutton-stub>
+    <mdcontent-stub />
+     
+    <mdbutton-stub
+      class="md-fab md-primary menu-speed"
+    >
+      <mdicon-stub>
+        note_add
+      </mdicon-stub>
+    </mdbutton-stub>
+  </div>
 </div>
 `;
 
@@ -39,7 +45,7 @@ exports[`Categories Component Render with categories 1`] = `
   class="full-height"
 >
   <div
-    class="md-toolbar md-theme-default md-elevation-4"
+    class="md-toolbar toolbar md-theme-default md-elevation-4"
   >
     <a
       class=""
@@ -74,74 +80,78 @@ exports[`Categories Component Render with categories 1`] = `
   </div>
    
   <div
-    class="md-content md-theme-default"
-  >
-    <ul
-      class="md-list md-theme-default"
-    >
-      <li
-        class="md-list-item"
-        to="/settings/categories/edit/2"
-      >
-        <a
-          class="md-list-item-router md-list-item-container md-button-clean"
-          href="#/settings/categories/edit/2"
-          mdripple="true"
-        >
-          <div
-            class="md-list-item-content md-ripple"
-          >
-            <span>
-              Lanche
-            </span>
-             
-          </div>
-        </a>
-      </li>
-    </ul>
-    <ul
-      class="md-list md-theme-default"
-    >
-      <li
-        class="md-list-item"
-        to="/settings/categories/edit/1"
-      >
-        <a
-          class="md-list-item-router md-list-item-container md-button-clean"
-          href="#/settings/categories/edit/1"
-          mdripple="true"
-        >
-          <div
-            class="md-list-item-content md-ripple"
-          >
-            <span>
-              Salario
-            </span>
-             
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-   
-  <a
-    class="md-button md-fab md-primary menu-speed md-theme-default"
-    href="#/settings/categories/new"
+    class="content-scroll"
   >
     <div
-      class="md-ripple"
+      class="md-content md-theme-default"
+    >
+      <ul
+        class="md-list md-theme-default"
+      >
+        <li
+          class="md-list-item"
+          to="/settings/categories/edit/2"
+        >
+          <a
+            class="md-list-item-router md-list-item-container md-button-clean"
+            href="#/settings/categories/edit/2"
+            mdripple="true"
+          >
+            <div
+              class="md-list-item-content md-ripple"
+            >
+              <span>
+                Lanche
+              </span>
+               
+            </div>
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="md-list md-theme-default"
+      >
+        <li
+          class="md-list-item"
+          to="/settings/categories/edit/1"
+        >
+          <a
+            class="md-list-item-router md-list-item-container md-button-clean"
+            href="#/settings/categories/edit/1"
+            mdripple="true"
+          >
+            <div
+              class="md-list-item-content md-ripple"
+            >
+              <span>
+                Salario
+              </span>
+               
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+     
+    <a
+      class="md-button md-fab md-primary menu-speed md-theme-default"
+      href="#/settings/categories/new"
     >
       <div
-        class="md-button-content"
+        class="md-ripple"
       >
-        <i
-          class="md-icon md-icon-font md-theme-default"
+        <div
+          class="md-button-content"
         >
-          note_add
-        </i>
+          <i
+            class="md-icon md-icon-font md-theme-default"
+          >
+            note_add
+          </i>
+        </div>
+         
       </div>
-       
-    </div>
-  </a>
+    </a>
+  </div>
 </div>
 `;

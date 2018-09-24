@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountEdit Component Render default 1`] = `
-<div>
-  <mdtoolbar-stub>
+<div
+  class="full-height"
+>
+  <mdtoolbar-stub
+    class="toolbar"
+  >
     <router-link-stub>
       <mdbutton-stub
         class="md-icon-button"
@@ -29,8 +33,12 @@ exports[`AccountEdit Component Render default 1`] = `
     </mdbutton-stub>
   </mdtoolbar-stub>
    
-  <!---->
-   
-  <mddialogconfirm-stub />
+  <div
+    class="content-scroll"
+  >
+    <!---->
+     
+    <mddialogconfirm-stub />
+  </div>
 </div>
 `;
