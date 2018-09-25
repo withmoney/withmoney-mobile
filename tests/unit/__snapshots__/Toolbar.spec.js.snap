@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar Component Render default 1`] = `
+<mdtoolbar-stub
+  mdelevation="4"
+>
+  <mdbutton-stub
+    id="btn-previus-month"
+    type="button"
+  >
+    <mdicon-stub>
+      chevron_left
+    </mdicon-stub>
+     June 18
+  
+  </mdbutton-stub>
+   
+  <h3
+    class="md-title"
+    style="text-align: center;"
+  >
+    July 18
+  </h3>
+   
+  <mdbutton-stub
+    id="btn-next-month"
+    type="button"
+  >
+    <mdicon-stub>
+      chevron_right
+    </mdicon-stub>
+     August 18
+  
+  </mdbutton-stub>
+</mdtoolbar-stub>
+`;

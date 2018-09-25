@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transaction Component Render default 1`] = `
+<form>
+  <mdcard-stub>
+    <mdcardcontent-stub>
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="name"
+        >
+          Name
+        </label>
+         
+        <mdinput-stub
+          id="name"
+          type="text"
+        />
+      </mdfield-stub>
+       
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <input
+          class="md-input"
+          id="value"
+          type="text"
+        />
+         
+        <mdicon-stub>
+          attach_money
+        </mdicon-stub>
+      </mdfield-stub>
+       
+      <mddatepicker-stub
+        id="transactionDate"
+        mddebounce="1000"
+        mdopenonfocus="true"
+        mdoverridenative="true"
+        value="Sat Aug 04 2018 11:33:21 GMT-0300 (-03)"
+      >
+        <label>
+          Transaction Day
+        </label>
+      </mddatepicker-stub>
+       
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="type"
+        >
+          Type
+        </label>
+         
+        <mdselect-stub
+          id="type"
+          name="type"
+        >
+          <mdoption-stub
+            id="type-in"
+            value="in"
+          >
+            In
+          </mdoption-stub>
+           
+          <mdoption-stub
+            id="type-out"
+            value="out"
+          >
+            Out
+          </mdoption-stub>
+        </mdselect-stub>
+      </mdfield-stub>
+       
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="AccountId"
+        >
+          Account
+        </label>
+         
+        <mdselect-stub
+          id="account"
+          name="AccountId"
+        />
+      </mdfield-stub>
+       
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="CategoryId"
+        >
+          Category
+        </label>
+         
+        <mdselect-stub
+          id="category"
+          name="CategoryId"
+        />
+      </mdfield-stub>
+       
+      <div>
+        <mdswitch-stub
+          class="md-primary"
+          id="isPaid"
+        >
+          IsPaid?
+        </mdswitch-stub>
+      </div>
+    </mdcardcontent-stub>
+     
+    <mdcardactions-stub
+      mdalignment="right"
+    >
+      <mdbutton-stub
+        class="md-primary"
+        id="save"
+        type="button"
+      >
+        Save
+      </mdbutton-stub>
+    </mdcardactions-stub>
+  </mdcard-stub>
+</form>
+`;

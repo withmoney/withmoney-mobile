@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionEdit Component Render default 1`] = `
+<div>
+  <mdtoolbar-stub
+    mdelevation="4"
+  >
+    <router-link-stub
+      event="click"
+      tag="a"
+      to="[object Object]"
+    >
+      <mdbutton-stub
+        class="md-icon-button"
+        type="button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Transaction: 
+    </h3>
+     
+    <mdbutton-stub
+      class="md-icon-button"
+      id="delete"
+      type="button"
+    >
+      <mdicon-stub>
+        delete
+      </mdicon-stub>
+    </mdbutton-stub>
+  </mdtoolbar-stub>
+   
+  <!---->
+   
+  <mddialogconfirm-stub
+    mdcanceltext="Não"
+    mdconfirmtext="Sim"
+    mdtitle="Deseja mesmo excluir essa transação?"
+  />
+</div>
+`;

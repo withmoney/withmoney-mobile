@@ -1,4 +1,5 @@
 import qs from 'querystring';
+import localStorage from 'localStorage';
 
 export const renameFields = (data, scheme) => {
   const renamed = {

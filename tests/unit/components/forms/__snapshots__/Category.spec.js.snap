@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category Component Render default 1`] = `
+<form>
+  <mdcard-stub>
+    <mdcardcontent-stub>
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="name"
+        >
+          Name
+        </label>
+         
+        <mdinput-stub
+          id="name"
+          type="text"
+        />
+      </mdfield-stub>
+       
+      <mdfield-stub
+        mdcounter="true"
+        mdtogglepassword="true"
+      >
+        <label
+          for="type"
+        >
+          Type
+        </label>
+         
+        <mdselect-stub
+          id="type"
+          name="type"
+        >
+          <mdoption-stub
+            id="type-out"
+            value="out"
+          >
+            
+            Saida
+          
+          </mdoption-stub>
+          <mdoption-stub
+            id="type-in"
+            value="in"
+          >
+            
+            Entrada
+          
+          </mdoption-stub>
+        </mdselect-stub>
+      </mdfield-stub>
+    </mdcardcontent-stub>
+     
+    <mdcardactions-stub
+      mdalignment="right"
+    >
+      <mdbutton-stub
+        class="md-primary"
+        id="save"
+        type="button"
+      >
+        Save
+      </mdbutton-stub>
+    </mdcardactions-stub>
+  </mdcard-stub>
+</form>
+`;

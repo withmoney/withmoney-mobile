@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionNew Component Render default 1`] = `
+<div>
+  <mdtoolbar-stub
+    mdelevation="4"
+  >
+    <router-link-stub
+      event="click"
+      tag="a"
+      to="[object Object]"
+    >
+      <mdbutton-stub
+        class="md-icon-button"
+        type="button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Add new Transaction
+    </h3>
+  </mdtoolbar-stub>
+   
+  <transactionform-stub
+    accountid="0"
+    categoryid="0"
+    name=""
+    onsave="function () { [native code] }"
+    transactiondate="2018-09-23T21:00:00-03:00"
+    type="in"
+    value=""
+  />
+</div>
+`;

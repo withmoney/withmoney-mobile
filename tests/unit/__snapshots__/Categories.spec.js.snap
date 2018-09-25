@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories Component Render default 1`] = `
+<div
+  class="full-height"
+>
+  <mdtoolbar-stub
+    mdelevation="4"
+  >
+    <router-link-stub
+      event="click"
+      tag="a"
+      to="/settings"
+    >
+      <mdbutton-stub
+        class="md-icon-button"
+        type="button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Categorias
+    </h3>
+  </mdtoolbar-stub>
+   
+  <mdcontent-stub
+    mdtag="div"
+  />
+   
+  <mdbutton-stub
+    class="md-fab md-primary menu-speed"
+    to="/settings/categories/new"
+    type="button"
+  >
+    <mdicon-stub>
+      note_add
+    </mdicon-stub>
+  </mdbutton-stub>
+</div>
+`;
+
+exports[`Categories Component Render with categories 1`] = `
+<div
+  class="full-height"
+>
+  <div
+    class="md-toolbar md-theme-default md-elevation-4"
+  >
+    <a
+      class=""
+      href="#/settings"
+    >
+      <button
+        class="md-button md-icon-button md-theme-default"
+        type="button"
+      >
+        <div
+          class="md-ripple"
+        >
+          <div
+            class="md-button-content"
+          >
+            <i
+              class="md-icon md-icon-font md-theme-default"
+            >
+              keyboard_backspace
+            </i>
+          </div>
+           
+        </div>
+      </button>
+    </a>
+     
+    <h3
+      class="md-title"
+    >
+      Categorias
+    </h3>
+  </div>
+   
+  <div
+    class="md-content md-theme-default"
+  >
+    <ul
+      class="md-list md-theme-default"
+    >
+      <li
+        class="md-list-item"
+        to="/settings/categories/edit/2"
+      >
+        <a
+          class="md-list-item-router md-list-item-container md-button-clean"
+          href="#/settings/categories/edit/2"
+          mdripple="true"
+        >
+          <div
+            class="md-list-item-content md-ripple"
+          >
+            <span>
+              Lanche
+            </span>
+             
+          </div>
+        </a>
+      </li>
+    </ul>
+    <ul
+      class="md-list md-theme-default"
+    >
+      <li
+        class="md-list-item"
+        to="/settings/categories/edit/1"
+      >
+        <a
+          class="md-list-item-router md-list-item-container md-button-clean"
+          href="#/settings/categories/edit/1"
+          mdripple="true"
+        >
+          <div
+            class="md-list-item-content md-ripple"
+          >
+            <span>
+              Salario
+            </span>
+             
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+   
+  <a
+    class="md-button md-fab md-primary menu-speed md-theme-default"
+    href="#/settings/categories/new"
+  >
+    <div
+      class="md-ripple"
+    >
+      <div
+        class="md-button-content"
+      >
+        <i
+          class="md-icon md-icon-font md-theme-default"
+        >
+          note_add
+        </i>
+      </div>
+       
+    </div>
+  </a>
+</div>
+`;

@@ -1,0 +1,740 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionList Component Render default 1`] = `
+<div
+  class="full-height"
+>
+  <toolbar-stub />
+   
+  <div
+    class="content-scroll"
+  >
+    <mdtabs-stub
+      id="tabs-type"
+      mdactivetab="tab-out"
+      mdalignment="left"
+      mdelevation="0"
+    >
+      <mdtab-stub
+        id="tab-in"
+        mdlabel="Entradas"
+        mdtemplatedata="[object Object]"
+      />
+       
+      <mdtab-stub
+        id="tab-out"
+        mdlabel="Saidas"
+        mdtemplatedata="[object Object]"
+      />
+    </mdtabs-stub>
+     
+    <mdtable-stub
+      md-card=""
+      mdcard=""
+    >
+      <mdtablerow-stub>
+        <mdtablehead-stub>
+          Data
+        </mdtablehead-stub>
+         
+        <mdtablehead-stub>
+          Nome
+        </mdtablehead-stub>
+         
+        <mdtablehead-stub>
+          Valor
+        </mdtablehead-stub>
+         
+        <mdtablehead-stub>
+          Categoria
+        </mdtablehead-stub>
+         
+        <mdtablehead-stub
+          style="width: 75px;"
+        >
+          Pago?
+        </mdtablehead-stub>
+      </mdtablerow-stub>
+       
+    </mdtable-stub>
+     
+    <mdcard-stub
+      class="calcs"
+    >
+      <mdcardcontent-stub>
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total Entradas
+          </div>
+           
+          <div
+            class="md-layout-item text-green"
+          >
+            R$ 0,00
+          </div>
+        </div>
+         
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total Saídas
+          </div>
+           
+          <div
+            class="md-layout-item text-red"
+          >
+            R$ 0,00
+          </div>
+        </div>
+         
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total
+          </div>
+           
+          <div
+            class="md-layout-item"
+          >
+            R$ 0,00
+          </div>
+        </div>
+      </mdcardcontent-stub>
+    </mdcard-stub>
+     
+    <mdcard-stub
+      class="calcs"
+    >
+      <mdcardcontent-stub>
+        <progressbartransaction-stub
+          amount="NaN"
+          partial="0"
+          title="Entradas"
+          total="0"
+          type="in"
+        />
+         
+        <progressbartransaction-stub
+          amount="NaN"
+          partial="0"
+          title="Saídas"
+          total="0"
+          type="out"
+        />
+      </mdcardcontent-stub>
+    </mdcard-stub>
+  </div>
+   
+  <mdbutton-stub
+    class="md-fab md-primary menu-speed"
+    to="[object Object]"
+    type="button"
+  >
+    <mdicon-stub>
+      note_add
+    </mdicon-stub>
+  </mdbutton-stub>
+</div>
+`;
+
+exports[`TransactionList Component Render with transactions 1`] = `
+<div
+  class="full-height"
+>
+  <div
+    class="md-toolbar md-theme-default md-elevation-4"
+  >
+    <button
+      class="md-button md-theme-default"
+      id="btn-previus-month"
+      type="button"
+    >
+      <div
+        class="md-ripple"
+      >
+        <div
+          class="md-button-content"
+        >
+          <i
+            class="md-icon md-icon-font md-theme-default"
+          >
+            chevron_left
+          </i>
+           June 18
+  
+        </div>
+         
+      </div>
+    </button>
+     
+    <h3
+      class="md-title"
+      style="text-align: center;"
+    >
+      July 18
+    </h3>
+     
+    <button
+      class="md-button md-theme-default"
+      id="btn-next-month"
+      type="button"
+    >
+      <div
+        class="md-ripple"
+      >
+        <div
+          class="md-button-content"
+        >
+          <i
+            class="md-icon md-icon-font md-theme-default"
+          >
+            chevron_right
+          </i>
+           August 18
+  
+        </div>
+         
+      </div>
+    </button>
+  </div>
+   
+  <div
+    class="content-scroll"
+  >
+    <div
+      class="md-tabs md-alignment-left md-no-transition md-theme-default"
+      id="tabs-type"
+    >
+      <div
+        class="md-tabs-navigation md-elevation-0"
+      >
+         
+        <span
+          class="md-tabs-indicator"
+        />
+      </div>
+       
+      <div
+        class="md-content md-tabs-content md-theme-default"
+        style="height: 0px; display: none;"
+      >
+        <div
+          class="md-tabs-container"
+        >
+          <div
+            class="md-tab-stubbed"
+            id="tab-in"
+            md-label="Entradas"
+          />
+           
+          <div
+            class="md-tab-stubbed"
+            id="tab-out"
+            md-label="Saidas"
+          />
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="md-card md-table md-theme-default"
+      md-card=""
+    >
+       
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="md-content md-table-content md-scrollbar md-theme-default"
+      >
+        <table>
+          <!---->
+           
+          <tbody>
+            <tr
+              class="md-table-row"
+            >
+              <!---->
+               
+              <th
+                class="md-table-head"
+              >
+                <div
+                  class="md-table-head-container"
+                >
+                  <div
+                    class="md-table-head-label"
+                  >
+                    Data
+                  </div>
+                </div>
+              </th>
+               
+              <th
+                class="md-table-head"
+              >
+                <div
+                  class="md-table-head-container"
+                >
+                  <div
+                    class="md-table-head-label"
+                  >
+                    Nome
+                  </div>
+                </div>
+              </th>
+               
+              <th
+                class="md-table-head"
+              >
+                <div
+                  class="md-table-head-container"
+                >
+                  <div
+                    class="md-table-head-label"
+                  >
+                    Valor
+                  </div>
+                </div>
+              </th>
+               
+              <th
+                class="md-table-head"
+              >
+                <div
+                  class="md-table-head-container"
+                >
+                  <div
+                    class="md-table-head-label"
+                  >
+                    Categoria
+                  </div>
+                </div>
+              </th>
+               
+              <th
+                class="md-table-head"
+                style="width: 75px;"
+              >
+                <div
+                  class="md-table-head-container"
+                >
+                  <div
+                    class="md-table-head-label"
+                  >
+                    Pago?
+                  </div>
+                </div>
+              </th>
+            </tr>
+             
+            <tr
+              class="md-table-row"
+              id="transaction-3"
+            >
+              <!---->
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  07/02
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  AlmoçoAlmoço 2
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  15.00
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  Lanche
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell md-table-cell-center"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  <i
+                    class="md-icon md-icon-font md-theme-default"
+                  >
+                    lens
+                  </i>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="md-table-row"
+              id="transaction-2"
+            >
+              <!---->
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  08/04
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  Coxinha
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  3.13
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  Lanche
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell md-table-cell-center"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  <i
+                    class="md-icon md-icon-font md-theme-default"
+                  >
+                    lens
+                  </i>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="md-table-row"
+              id="transaction-1"
+            >
+              <!---->
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  08/04
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  Lanche na Sonia
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  30.90
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  Lanche
+                </div>
+              </td>
+               
+              <td
+                class="md-table-cell md-table-cell-center"
+              >
+                <div
+                  class="md-table-cell-container"
+                >
+                  <i
+                    class="md-icon md-icon-font md-theme-default"
+                  >
+                    check_circle
+                  </i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+         
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="md-card calcs md-theme-default"
+    >
+      <div
+        class="md-card-content"
+      >
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total Entradas
+          </div>
+           
+          <div
+            class="md-layout-item text-green"
+          >
+            R$ 0,00
+          </div>
+        </div>
+         
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total Saídas
+          </div>
+           
+          <div
+            class="md-layout-item text-red"
+          >
+            R$ 49,03
+          </div>
+        </div>
+         
+        <div
+          class="md-layout"
+        >
+          <div
+            class="md-layout-item"
+          >
+            Total
+          </div>
+           
+          <div
+            class="md-layout-item"
+          >
+            -R$ 49,03
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="md-card calcs md-theme-default"
+    >
+      <div
+        class="md-card-content"
+      >
+        <div
+          class="progress-bar-transaction"
+        >
+          <div
+            class="progress-bar-transaction-title"
+          >
+            Entradas
+          </div>
+           
+          <div
+            appear=""
+            class="md-progress-bar md-determinate md-theme-default"
+            name="md-progress-bar"
+          >
+            <div
+              class="md-progress-bar-track"
+              style="width: 0%;"
+            />
+             
+            <div
+              class="md-progress-bar-fill"
+            />
+             
+            <div
+              class="md-progress-bar-buffer"
+              style="left: calc(0% + 8px)"
+            />
+          </div>
+           
+          <div
+            class="md-layout"
+          >
+            <div
+              class="md-layout-item"
+            >
+              <span>
+                Realizado: 
+              </span>
+               
+              <span
+                class="text-in"
+              >
+                R$ 0,00
+              </span>
+            </div>
+             
+            <div
+              class="md-layout-item"
+            >
+              <span>
+                Previsto: 
+              </span>
+               
+              <span
+                class="text-partial"
+              >
+                R$ 0,00
+              </span>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="progress-bar-transaction"
+        >
+          <div
+            class="progress-bar-transaction-title"
+          >
+            Saídas
+          </div>
+           
+          <div
+            appear=""
+            class="md-progress-bar md-determinate md-theme-default md-accent"
+            name="md-progress-bar"
+          >
+            <div
+              class="md-progress-bar-track"
+              style="width: 0%;"
+            />
+             
+            <div
+              class="md-progress-bar-fill"
+              style="width: 63.02263920048949%;"
+            />
+             
+            <div
+              class="md-progress-bar-buffer"
+              style="left: calc(0% + 8px)"
+            />
+          </div>
+           
+          <div
+            class="md-layout"
+          >
+            <div
+              class="md-layout-item"
+            >
+              <span>
+                Realizado: 
+              </span>
+               
+              <span
+                class="text-out"
+              >
+                R$ 30,90
+              </span>
+            </div>
+             
+            <div
+              class="md-layout-item"
+            >
+              <span>
+                Previsto: 
+              </span>
+               
+              <span
+                class="text-partial"
+              >
+                R$ 49,03
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <a
+    class="md-button md-fab md-primary menu-speed md-theme-default"
+    href="#/transaction-new?type=out"
+  >
+    <div
+      class="md-ripple"
+    >
+      <div
+        class="md-button-content"
+      >
+        <i
+          class="md-icon md-icon-font md-theme-default"
+        >
+          note_add
+        </i>
+      </div>
+       
+    </div>
+  </a>
+</div>
+`;

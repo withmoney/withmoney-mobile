@@ -13,7 +13,7 @@ cache:
 jobs:
   include:
   - stage: unit
-    script: npm run unit
+    script: npm run test
     before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
       > ./cc-test-reporter
@@ -24,7 +24,7 @@ jobs:
   - stage: e2e
     env:
     - DOCKER_COMPOSE_VERSION=1.21.2
-    script: npm run e2e
+    script: npm run test:e2e
     before_install:
     - sudo rm /usr/local/bin/docker-compose
     - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose

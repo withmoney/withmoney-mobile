@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryNew Component Render default 1`] = `
+<div>
+  <mdtoolbar-stub
+    mdelevation="4"
+  >
+    <router-link-stub
+      event="click"
+      tag="a"
+      to="/settings/categories"
+    >
+      <mdbutton-stub
+        class="md-icon-button"
+        type="button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Nova Categoria
+    </h3>
+  </mdtoolbar-stub>
+   
+  <categoryform-stub
+    name=""
+    onsave="function () { [native code] }"
+    type="out"
+  />
+</div>
+`;

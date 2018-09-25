@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountNew Component Render default 1`] = `
+<div>
+  <mdtoolbar-stub
+    mdelevation="4"
+  >
+    <router-link-stub
+      event="click"
+      tag="a"
+      to="/settings/categories"
+    >
+      <mdbutton-stub
+        class="md-icon-button"
+        type="button"
+      >
+        <mdicon-stub>
+          keyboard_backspace
+        </mdicon-stub>
+      </mdbutton-stub>
+    </router-link-stub>
+     
+    <h3
+      class="md-title"
+    >
+      Nova Conta
+    </h3>
+  </mdtoolbar-stub>
+   
+  <accountform-stub
+    initalvalue=""
+    name=""
+    onsave="function () { [native code] }"
+    type="checking_account"
+  />
+</div>
+`;
