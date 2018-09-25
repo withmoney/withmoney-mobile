@@ -4,6 +4,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new WebpackDotenvPlugin({
+        allowEmptyValues: true,
         sample: './.env.example',
         path: './.env',
       }),

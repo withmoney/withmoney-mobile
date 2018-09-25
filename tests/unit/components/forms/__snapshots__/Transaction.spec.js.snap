@@ -40,7 +40,7 @@ exports[`Transaction Component Render default 1`] = `
         mddebounce="1000"
         mdopenonfocus="true"
         mdoverridenative="true"
-        value="Sat Aug 04 2018 11:33:21 GMT-0300 (-03)"
+        value="2018-08-04T14:33:21.000Z"
       >
         <label>
           Transaction Day

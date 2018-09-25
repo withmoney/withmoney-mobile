@@ -89,7 +89,7 @@ describe('Transaction Component', () => {
         localVue,
         propsData: {
           onSave,
-          transactionDate: new Date('2018-08-04T14:33:21.000Z').toString(),
+          transactionDate: '2018-08-04T14:33:21.000Z',
         },
       });
 

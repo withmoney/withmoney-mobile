@@ -17,10 +17,15 @@ localVue.use(VueRouter);
 describe('TransactionNew Component', () => {
   let store;
   let nowMock;
+  let getTimezoneOffsetMock;
 
   beforeAll(() => {
     nowMock = Date.now;
-    Date.now = () => new Date('2018-09-24T00:00:00-00:00').getTime();
+    Date.now = () => 1537747200000;
+    getTimezoneOffsetMock = global.Date.prototype.getTimezoneOffset;
+    global.Date.prototype.getTimezoneOffset = function () {
+        return 160;
+    }
     store = new Vuex.Store({
       state: {
         state_month: Moment(),
@@ -39,6 +44,7 @@ describe('TransactionNew Component', () => {
 
   afterAll(() => {
     Date.now = nowMock;
+    global.Date.prototype.getTimezoneOffset = getTimezoneOffsetMock;
   });
 
   describe('Render', () => {
