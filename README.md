@@ -1,15 +1,24 @@
-# with-money
-
-
-
 # With Money
 
 A project to control your money
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/7f452077f9e11c1a0b95/maintainability)](https://codeclimate.com/github/davidcostadev/with-money/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7f452077f9e11c1a0b95/test_coverage)](https://codeclimate.com/github/davidcostadev/with-money/test_coverage)
-[![Build Status](https://travis-ci.org/davidcostadev/with-money.svg?branch=master)](https://travis-ci.org/davidcostadev/with-money)
-[![codecov](https://codecov.io/gh/davidcostadev/with-money/branch/master/graph/badge.svg)](https://codecov.io/gh/davidcostadev/with-money)
+[![Maintainability](https://api.codeclimate.com/v1/badges/811bed995869138322c8/maintainability)](https://codeclimate.com/github/davidcostadev/withmoney/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/811bed995869138322c8/test_coverage)](https://codeclimate.com/github/davidcostadev/withmoney/test_coverage)
+[![Build Status](https://travis-ci.org/davidcostadev/withmoney.svg?branch=master)](https://travis-ci.org/davidcostadev/withmoney)
+
+
+## Develop Steps
+
+To use this repo you will need a service of api, https://github.com/davidcostadev/api-withmoney. With this, you have two options, clone the api repo or use a docker-compose.
+
+### With Docker Compose
+
+- clone the withmoney repo
+- `docker-compose up`
+
+### With a api-withmoney repo 
+
+You can follow this instructions https://github.com/davidcostadev/api-withmoney/blob/master/README.md 
 
 ## Build Setup
 
@@ -31,9 +40,8 @@ npm run unit
 
 # run e2e tests
 npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Author
+
+David Costa <davidcostadev@gmail.com>
