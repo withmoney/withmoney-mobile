@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "test": "npm run test:unit && codecov",
+    "test": "npm run test:unit",
     "coverage": "http-server ./coverage/lcov-report -o",
     "deploy": "pm2 deploy production"
   },
