@@ -28,7 +28,9 @@ describe('TransactionNew Component', () => {
     }
     store = new Vuex.Store({
       state: {
-        state_month: Moment(),
+        state_month: {
+          format: jest.fn().mockReturnValue(new Date(Date.now()).toISOString()),
+        },
       },
       getters,
       actions,

@@ -32,7 +32,7 @@ exports[`TransactionNew Component Render default 1`] = `
     categoryid="0"
     name=""
     onsave="function () { [native code] }"
-    transactiondate="2018-09-23T21:00:00-02:45"
+    transactiondate="2018-09-24T00:00:00.000Z"
     type="in"
     value=""
   />
