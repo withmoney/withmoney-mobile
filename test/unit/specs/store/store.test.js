@@ -27,9 +27,9 @@ describe('store', () => {
       user: null,
       current_month: Moment(),
       state_month: Moment(),
-      state_month_str: Moment().format('MMMM YY'),
-      next_month_str: Moment().add(1, 'month').format('MMMM YY'),
-      previous_month_str: Moment().subtract(1, 'month').format('MMMM YY'),
+      state_month_str: Moment().format('MMM YY'),
+      next_month_str: Moment().add(1, 'month').format('MMM YY'),
+      previous_month_str: Moment().subtract(1, 'month').format('MMM YY'),
     };
   });
 
@@ -89,37 +89,37 @@ describe('store', () => {
       TO_CURRENT_MONTH(state);
 
       expect(state.state_month.toISOString()).toEqual('2018-07-24T23:06:18.215Z');
-      expect(state.state_month_str).toEqual('julho 18');
-      expect(state.next_month_str).toEqual('agosto 18');
-      expect(state.previous_month_str).toEqual('junho 18');
+      expect(state.state_month_str).toEqual('jul 18');
+      expect(state.next_month_str).toEqual('ago 18');
+      expect(state.previous_month_str).toEqual('jun 18');
     });
 
     it('TO_PREVIUS_MONTH', () => {
       expect(state.state_month.toISOString()).toEqual('2018-07-24T23:06:18.215Z');
-      expect(state.state_month_str).toEqual('julho 18');
-      expect(state.next_month_str).toEqual('agosto 18');
-      expect(state.previous_month_str).toEqual('junho 18');
+      expect(state.state_month_str).toEqual('jul 18');
+      expect(state.next_month_str).toEqual('ago 18');
+      expect(state.previous_month_str).toEqual('jun 18');
 
       TO_PREVIUS_MONTH(state);
 
       expect(state.state_month.toISOString()).toEqual('2018-06-24T23:06:18.215Z');
-      expect(state.state_month_str).toEqual('junho 18');
-      expect(state.next_month_str).toEqual('julho 18');
-      expect(state.previous_month_str).toEqual('maio 18');
+      expect(state.state_month_str).toEqual('jun 18');
+      expect(state.next_month_str).toEqual('jul 18');
+      expect(state.previous_month_str).toEqual('mai 18');
     });
 
     it('TO_NEXT_MONTH', () => {
       expect(state.state_month.toISOString()).toEqual('2018-07-24T23:06:18.215Z');
-      expect(state.state_month_str).toEqual('julho 18');
-      expect(state.next_month_str).toEqual('agosto 18');
-      expect(state.previous_month_str).toEqual('junho 18');
+      expect(state.state_month_str).toEqual('jul 18');
+      expect(state.next_month_str).toEqual('ago 18');
+      expect(state.previous_month_str).toEqual('jun 18');
 
       TO_NEXT_MONTH(state);
 
       expect(state.state_month.toISOString()).toEqual('2018-08-24T23:06:18.215Z');
-      expect(state.state_month_str).toEqual('agosto 18');
-      expect(state.next_month_str).toEqual('setembro 18');
-      expect(state.previous_month_str).toEqual('julho 18');
+      expect(state.state_month_str).toEqual('ago 18');
+      expect(state.next_month_str).toEqual('set 18');
+      expect(state.previous_month_str).toEqual('jul 18');
     });
   });
 });
