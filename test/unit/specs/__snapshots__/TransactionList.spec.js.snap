@@ -121,7 +121,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
           >
             chevron_left
           </i>
-           June 18
+           Jun 18
   
         </div>
          
@@ -130,9 +130,9 @@ exports[`TransactionList Component Render with transactions 1`] = `
      
     <h3
       class="md-title"
-      style="text-align: center;"
+      style="text-align: center; text-transform: uppercase;"
     >
-      July 18
+      Jul 18
     </h3>
      
     <button
@@ -151,7 +151,7 @@ exports[`TransactionList Component Render with transactions 1`] = `
           >
             chevron_right
           </i>
-           August 18
+           Aug 18
   
         </div>
          

@@ -10,15 +10,15 @@ exports[`Toolbar Component Render default 1`] = `
     <mdicon-stub>
       chevron_left
     </mdicon-stub>
-     June 18
+     Jun 18
   
   </mdbutton-stub>
    
   <h3
     class="md-title"
-    style="text-align: center;"
+    style="text-align: center; text-transform: uppercase;"
   >
-    July 18
+    Jul 18
   </h3>
    
   <mdbutton-stub
@@ -27,7 +27,7 @@ exports[`Toolbar Component Render default 1`] = `
     <mdicon-stub>
       chevron_right
     </mdicon-stub>
-     August 18
+     Aug 18
   
   </mdbutton-stub>
 </mdtoolbar-stub>
