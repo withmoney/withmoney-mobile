@@ -1,5 +1,5 @@
 <template>
-  <md-toolbar class="toolbar">
+  <md-toolbar :class="{'toolbar fixed': fixed}">
     <md-button id="btn-previus-month" @click="toPreviousMonth">
       <md-icon>chevron_left</md-icon> {{previous_month_str}}
     </md-button>
@@ -14,6 +14,12 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  props: {
+    fixed: {
+      type: Boolean,
+      default: true,
+    },
+  },
   computed: {
     ...mapGetters([
       'state_month_str',
@@ -35,10 +41,11 @@ export default {
 </script>
 
 <style>
-.toolbar {
+.toolbar.fixed {
   position: fixed !important;
   top: 0;
   z-index: 100;
   width: 100%;
 }
+
 </style>
