@@ -11,11 +11,11 @@ describe('Toolbar', () => {
 
     cy.get('#btn-previus-month').click();
 
-    cy.contains('.md-toolbar .md-title', 'junho 18');
+    cy.contains('.md-toolbar .md-title', 'jun 18');
 
     cy.get('#btn-next-month').click();
     cy.get('#btn-next-month').click();
 
-    cy.contains('.md-toolbar .md-title', 'agosto 18');
+    cy.contains('.md-toolbar .md-title', 'ago 18');
   });
 });
