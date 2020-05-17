@@ -1,6 +1,0 @@
-export const ADD_USER = 'ADD_USER';
-export const TO_CURRENT_MONTH = 'TO_CURRENT_MONTH';
-export const TO_PREVIUS_MONTH = 'TO_PREVIUS_MONTH';
-export const TO_NEXT_MONTH = 'TO_NEXT_MONTH';
-export const FLASH_MESSAGE_SHOW = 'FLASH_MESSAGE_SHOW';
-export const FLASH_MESSAGE_HIDE = 'FLASH_MESSAGE_HIDE';
